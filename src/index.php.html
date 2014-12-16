@@ -1,0 +1,139 @@
+<?php
+require_once 'includes/Utils.php';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Paintown</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+        <!-- Custom styles for this template -->
+        <link href="css/new_style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="row">
+            <div class="col-sm-12">
+                <nav class="navbar" role="navigation">
+                    <div class="paintown-logo">
+                        <a href="http://paintown.org">
+                            <img src="/assets/images/paintown-med.jpg" class="media img-rounded img-responsive" alt="Paintown"  />
+                        </a>
+                    </div>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul id="mobilenav" class="nav navbar-nav visible-xs">
+                            <?php Utils::doNavigation(); ?>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 hidden-xs">
+                <div class="well well-sm">
+                    <ul id="navbar-ul" class="nav nav-pills nav-stacked">
+                        <?php Utils::doNavigation(); ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div id="content" class="well well-large collapse in text-left">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div id="right-content" class="well well-large collapse in text-left">
+                    <?php include_once('pages/releases.php') ?>
+                    <?php include_once('pages/news.php') ?>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-inverse navbar-default navbar-fixed-bottom" role="navigation">
+            <p class="navbar-text pull-right">Copyright <?php echo strftime("%Y") ?>&nbsp;<span class="glyphicon glyphicon-copyright-mark"></span>&nbsp;<a href="https://github.com/kazzmir" class="navbar-link">Jon Rafkind</a></p>
+        </nav>
+        <!-- JavaScript plugins (requires jQuery) -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+
+        <!-- handlers -->
+        <script>
+            $(document).ready(function() {
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+                var hash = window.location.hash;
+                if (hash.length <= 1){
+                    $("#home").parent().addClass('active');
+                    $('#content').load('pages/home.php');
+                } else {
+                    $(hash).parent().addClass('active');
+                    $('#content').load('pages/' + hash.substr(1) + '.php');
+                }
+                window.location.hash = '';
+                $('#navbar-ul li').click(function(e) {
+                    $('#navbar-ul li').removeClass('active');
+                    var $this = $(this);
+                    if (!$this.hasClass('active')) {
+                      $this.addClass('active');
+                    }
+                    if ($this.find('a:first').attr('id') != 'none'){
+                        e.preventDefault();
+                        $("#content")
+                            .empty()
+                            .append('<div class="alert alert-info"><strong>Loading...</strong></div>')
+                            .ajaxStart(function(){
+
+                            })
+                            .load('pages/' + $this.find('a:first').attr('id') + '.php', function(response, status, xhr) {
+                                if (status == "error") {
+                                    var msg = "Problem loading page [" + $this.find('a:first').attr('id') + "], reason: ";
+                                    $("#content").html(msg + xhr.status + " " + xhr.statusText);
+                                }
+                            })
+                    }
+                });
+                $('#mobilenav li').click(function(e) {
+                    $('#mobilenav li').removeClass('active');
+                    var $this = $(this);
+                    if (!$this.hasClass('active')) {
+                        $this.addClass('active');
+                    }
+                    if ($this.find('a:first').attr('id') != 'none'){
+                        e.preventDefault();
+                        $("#content")
+                            .empty()
+                            .append('<div class="alert alert-info"><strong>Loading...</strong></div>')
+                            .ajaxStart(function(){
+
+                            })
+                            .load('pages/' + $this.find('a:first').attr('id') + '.php', function(response, status, xhr) {
+                                if (status == "error") {
+                                    var msg = "Problem loading page [" + $this.find('a:first').attr('id') + "], reason: ";
+                                    $("#content").html(msg + xhr.status + " " + xhr.statusText);
+                                }
+                            })
+                    }
+                });
+                $('.navbar-nav a').on('click', function(){
+                    $(".navbar-toggle").click();
+                });
+            });
+        </script>
+    </body>
+</html>
