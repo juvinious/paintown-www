@@ -5,6 +5,7 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.about',
   'ngBoilerplate.downloads',
   'ngBoilerplate.irc',
+  'ngBoilerplate.development',
   'ui.router'
 ])
 

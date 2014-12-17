@@ -1,7 +1,8 @@
 angular.module( 'ngBoilerplate.downloads', [
   'ui.router',
   'placeholders',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'quickMenu'
 ])
 
 .service('icons', function(){
@@ -45,16 +46,17 @@ angular.module( 'ngBoilerplate.downloads', [
   });
 })
 
-.controller( 'DownloadsCtrl', function DownloadsCtrl( $scope, feed, icons, $location, $anchorScroll) {
+.controller( 'DownloadsCtrl', function DownloadsCtrl( $scope, feed, icons, $location, anchor) {
     $scope.anchor = function(id){
-        $location.hash(id);
-        $anchorScroll();
+        anchor.to(id);
     };
     //$scope.entries = {};
     feed.get('https://sourceforge.net/projects/paintown/rss?path=/')
         .success(function(response){
             var downloads = {};
             var mods = {};
+            var dlmenu = [];
+            var modmenu = [];
             if (response.responseData) {
                 angular.forEach(response.responseData.feed.entries, function (value, key) {
                     //console.log(value);
@@ -68,6 +70,7 @@ angular.module( 'ngBoilerplate.downloads', [
                     if (!isMod) {
                         if (!downloads[version[1]]) {
                             downloads[version[1]] = [];
+                            dlmenu.push({title: version[1]});
                         }
                         downloads[version[1]].push({
                             version: version[1],
@@ -79,6 +82,7 @@ angular.module( 'ngBoilerplate.downloads', [
                     } else {
                         if (!mods[version[1]]) {
                             mods[version[1]] = [];
+                            modmenu.push({title: version[1]});
                         }
                         mods[version[1]].push({
                             version: version[1],
@@ -90,6 +94,19 @@ angular.module( 'ngBoilerplate.downloads', [
                     }
                 });
             }
+
+            $scope.quickmenu = [
+                {
+                    title: 'Downloads',
+                    id: 'downloads',
+                    submenu: dlmenu
+                },
+                {
+                    title: 'Mods',
+                    id: 'mods',
+                    submenu: modmenu
+                }
+            ];
             /*var array = _.pairs(downloads);
             array.sort(function(a, b){
                 if (a[0].indexOf('Alpha')){

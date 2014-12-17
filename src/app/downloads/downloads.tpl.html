@@ -6,34 +6,7 @@
                 For all platforms, test ports, mods and other misc. files
             </small>
         </h1>
-        <p>
-            <ul>
-                <li>
-                    <a ng-click="anchor('downloads')" style="cursor: pointer;">
-                        Releases
-                    </a>
-                    <ul>
-                        <li ng-repeat="dl in downloads">
-                            <a ng-init="v = $index+1" ng-click="anchor('dl-' + v)" style="cursor: pointer;">
-                                {{dl[0].version}}
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a ng-click="anchor('mods')" style="cursor: pointer;">
-                        Mods
-                    </a>
-                    <ul>
-                        <li ng-repeat="mod in mods">
-                            <a ng-init="v = $index+1" ng-click="anchor('mod-' + v)" style="cursor: pointer;">
-                                {{mod[0].version}}
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </p>
+        <quick-menu></quick-menu>
         <h2>Distribution Packages and Information</h2>
         <ul>
             <li><a href="http://sourceforge.net/apps/trac/paintown/wiki/UbuntuInstallation">Ubuntu PPA directions</a></li>
@@ -45,7 +18,7 @@
         </h2>
         <div class="panel-group">
             <div class="panel panel-default" ng-repeat="dl in downloads">
-                <div id="dl-{{$index+1}}" class="panel-heading">{{dl[0].version}}</div>
+                <div id="downloads-{{$index+1}}" class="panel-heading">{{dl[0].version}}</div>
                 <table class="table table-striped">
                     <tr>
                         <th>Title</th>
@@ -79,7 +52,7 @@
         </p>
         <div class="panel-group">
             <div class="panel panel-default" ng-repeat="mod in mods">
-                <div id="mod-{{$index+1}}" class="panel-heading">{{mod[0].version}}</div>
+                <div id="mods-{{$index+1}}" class="panel-heading">{{mod[0].version}}</div>
                 <table class="table table-striped">
                     <tr>
                         <th>Title</th>

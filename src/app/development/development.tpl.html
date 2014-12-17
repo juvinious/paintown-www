@@ -1,0 +1,26 @@
+<div class="row" id="top">
+    <div class="well well-large collapse in text-left">
+        <h1 class="page-header">
+            Development<br>
+            <small>
+                Development related information
+            </small>
+        </h1>
+        <quick-menu></quick-menu>
+        <h2 id="svn">Subversion</h2>
+        <p>Repository: http://svn.code.sourceforge.net/p/paintown/code/trunk</p>
+        <p><a href="http://sourceforge.net/p/paintown/code/?source=navbar" class="btn btn-info">Browse SVN</a></p>
+
+        <div class="panel-group" id="commits">
+            <div class="panel panel-default">
+                <div class="panel-heading">Recent Commits</div>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="commit in commits">
+                        {{commit.date}} - <a href="{{commit.link}}">{{commit.title}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
