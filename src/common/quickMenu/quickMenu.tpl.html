@@ -1,16 +1,14 @@
-<p>
-    <ul>
-        <li ng-repeat="item in quickmenu">
-            <a ng-click="anchor(item.id)" style="cursor: pointer;">
-                {{item.title}}
-            </a>
-            <ul ng-if="item.submenu">
-                <li ng-repeat="sub in item.submenu">
-                    <a ng-init="v = $index+1" ng-click="anchor(item.id + '-' + v)" style="cursor: pointer;">
-                        {{sub.title}}
-                    </a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</p>
+<ul>
+    <li ng-repeat="item in quickmenu">
+        <a ng-click="anchor(item.id)" style="cursor: pointer;">
+            {{item.title}}
+        </a>
+        <ul ng-if="item.submenu">
+            <li ng-repeat="sub in item.submenu">
+                <a ng-init="v = $index+1" ng-click="anchor(item.id + '-' + v)" style="cursor: pointer;">
+                    {{sub.title}}
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

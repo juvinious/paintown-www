@@ -46,11 +46,7 @@ angular.module( 'ngBoilerplate.downloads', [
   });
 })
 
-.controller( 'DownloadsCtrl', function DownloadsCtrl( $scope, feed, icons, $location, anchor) {
-    $scope.anchor = function(id){
-        anchor.to(id);
-    };
-    //$scope.entries = {};
+.controller( 'DownloadsCtrl', function DownloadsCtrl( $scope, feed, icons) {
     feed.get('https://sourceforge.net/projects/paintown/rss?path=/')
         .success(function(response){
             var downloads = {};
