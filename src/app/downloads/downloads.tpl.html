@@ -27,7 +27,7 @@
                     </tr>
                     <tr ng-repeat="item in dl">
                         <td>{{item.title}}</td>
-                        <td>{{item.date}}</td>
+                        <td>{{item.date | date:'medium'}}</td>
                         <td>
                             <a href="{{item.link}}">
                                 <button type="button" class="btn btn-primary pull-right">
@@ -61,7 +61,7 @@
                     </tr>
                     <tr ng-repeat="item in mod">
                         <td>{{item.title}}</td>
-                        <td>{{item.date}}</td>
+                        <td>{{item.date | date:'medium'}}</td>
                         <td>
                             <a href="{{item.link}}">
                                 <button type="button" class="btn btn-primary pull-right">

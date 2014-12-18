@@ -107,6 +107,23 @@ h2 {
     color: black;
   }
 
+  .navbar-toggle{
+    border: 1px solid @darker-blue;
+    background-color: @light-blue;
+    .icon-bar {
+      background-color: @darker-blue;
+      .transition(all, .4s, ease-in-out);
+      &:hover, &:focus{
+        background-color: white;
+      }
+    }
+    .transition(all, .4s, ease-in-out);
+    &:hover, &:focus{
+      background-color: @med-blue;
+      color: white;
+    }
+  }
+
   /**
    * Navigation
    */
@@ -115,12 +132,26 @@ h2 {
     background-color: @lm-blue;
     border-color: @dark-blue;
 
-    ul > li {
-      a {
-        color: @darker-blue;
+    ul {
+      background-color: @lm-blue;
+      ul {
+        border: 1px solid @dark-blue;
+        .active{
+          background-color: @dark-blue;
+          color: white;
+        }
       }
-      a:hover, a:focus {
-        color: black;
+      li {
+        background-color: @lm-blue;
+        a {
+          background-color: @lm-blue;
+          color: @darker-blue;
+          .transition(all, .4s, ease-in-out);
+          &:hover, &:focus {
+            background-color: @med-blue;
+            color: white;
+          }
+        }
       }
     }
   }
@@ -139,16 +170,34 @@ h2 {
   }
 
   .navbar-nav {
-    ul > li {
-      .active {
+    ul {
+      li {
+
+        .active {
+          a {
+            background-color: @darker-blue;
+          }
+        }
         a {
-          background-color: @darker-blue;
+          color: @darker-blue;
         }
       }
+    }
+    .open{
       a {
-        color: white;
+        &:focus {
+          background-color: @lm-blue;
+        }
+        &:hover {
+          background-color: @darker-blue;
+          color: white;
+        }
       }
     }
+  }
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+    background-color: @darker-blue;
+    color: white;
   }
 }
 

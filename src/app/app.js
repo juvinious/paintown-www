@@ -4,8 +4,9 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.home',
   'ngBoilerplate.about',
   'ngBoilerplate.downloads',
-  'ngBoilerplate.irc',
+  'ngBoilerplate.contact',
   'ngBoilerplate.development',
+  'ngBoilerplate.media',
   'ui.router'
 ])
 
@@ -24,50 +25,82 @@ angular.module( 'ngBoilerplate', [
                 {
                     name: 'Home',
                     url: 'home',
-                    external: false,
+                    type: 'internal',
                     icon: 'fa-home'
                 },
                 {
                     name: 'About',
                     url: 'about',
-                    external: false,
+                    type: 'internal',
                     icon: 'fa-info-circle'
                 },
                 {
                     name: 'Downloads',
                     url: 'downloads',
-                    external: false,
+                    type: 'internal',
                     icon: 'fa-download'
                 },
                 {
                     name: 'Development',
                     url: 'development',
-                    external: false,
+                    type: 'internal',
                     icon: 'fa-code'
                 },
                 {
                     name: 'Screenshots & Videos',
                     url: 'media',
-                    external: false,
+                    type: 'internal',
                     icon: 'fa-file'
                 },
                 {
-                    name: 'Forums',
-                    url: 'https://sourceforge.net/p/paintown/discussion/?source=navbar',
-                    external: true,
-                    icon: 'fa-book'
-                },
-                {
-                    name: 'IRC',
-                    url: 'irc',
-                    external: false,
-                    icon: 'fa-comments'
-                },
-                {
                     name: 'Support',
-                    url: 'https://sourceforge.net/projects/paintown/support?source=navbar',
-                    external: true,
-                    icon: 'fa-question-circle'
+                    url: '',
+                    type: 'dropdown',
+                    icon: 'fa-question-circle',
+                    menus: [
+                        {
+                            name: 'Contact',
+                            url: 'contact',
+                            type: 'internal',
+                            icon: 'fa-envelope'
+                        },
+                        {
+                            name: 'General support on Sourceforge',
+                            url: 'https://sourceforge.net/projects/paintown/support?source=navbar',
+                            type: 'external',
+                            icon: 'fa-question-circle'
+                        },
+                        {
+                            name: 'Forums',
+                            url: 'https://sourceforge.net/p/paintown/discussion/?source=navbar',
+                            type: 'external',
+                            icon: 'fa-book'
+                        },
+                        {
+                            name: 'IRC',
+                            url: 'http://webchat.freenode.net/?randomnick=1&channels=paintown',
+                            type: 'external',
+                            icon: 'fa-comments'
+                        },
+                        {
+                            name: 'Report a bug',
+                            url: 'https://sourceforge.net/p/paintown/tickets/',
+                            type: 'external',
+                            icon: 'fa-bug'
+                        },
+                        {
+                            name: 'Wiki',
+                            url: 'https://sourceforge.net/p/paintown/wiki/Home/',
+                            type: 'external',
+                            icon: 'fa-book'
+                        },
+                        {
+                            name: 'Donate',
+                            url: 'https://sourceforge.net/p/paintown/donate/',
+                            type: 'external',
+                            icon: 'fa-credit-card'
+                        }
+                    ]
                 }
             ];
         }

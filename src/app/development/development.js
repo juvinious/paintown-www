@@ -25,6 +25,10 @@ angular.module( 'ngBoilerplate.development', [
             title: 'Subversion'
         },
         {
+            id: 'commits',
+            title: 'Recent Commmits'
+        },
+        {
             id: 'faq',
             title: 'FAQ'
         },
@@ -33,8 +37,30 @@ angular.module( 'ngBoilerplate.development', [
             title: 'Testing / Unstable'
         },
         {
-            id: 'commits',
-            title: 'Recent Commmits'
+            id: 'other',
+            title: 'Other links'
+        },
+        {
+            id: 'gource',
+            title: 'SVN Visualization'
+        },
+        {
+            id: 'changelog',
+            title: 'Changelog'
+        }
+    ];
+    $scope.faq = [
+        {
+            q: 'What language is Paintown written in?',
+            a: 'C++'
+        },
+        {
+            q: 'Is python a requirement to run Paintown?',
+            a: 'No, python is optional at this point and definately not required for many game modes.'
+        },
+        {
+            q: 'Is the source code to Paintown based on another engine?',
+            a: 'No, Paintown was inspired by various other projects but the code is 100% original.'
         }
     ];
     $scope.commits = [];
@@ -46,7 +72,7 @@ angular.module( 'ngBoilerplate.development', [
                     $scope.commits.push({
                         title: value.title,
                         link: value.link,
-                        date: value.publishedDate
+                        date: new Date(value.publishedDate)
                     });
                 });
             }

@@ -72,7 +72,7 @@ angular.module( 'ngBoilerplate.downloads', [
                             version: version[1],
                             title: version[2],
                             link: value.link,
-                            date: value.publishedDate,
+                            date: new Date(value.publishedDate),
                             icon: icons.get(version[2])
                         });
                     } else {
@@ -84,7 +84,7 @@ angular.module( 'ngBoilerplate.downloads', [
                             version: version[1],
                             title: version[2],
                             link: value.link,
-                            date: value.publishedDate,
+                            date: new Date(value.publishedDate),
                             icon: icons.get(version[2])
                         });
                     }
