@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html ng-app="ngBoilerplate" ng-controller="AppCtrl">
+  <head>
+    <title ng-bind="pageTitle"></title>
+
+    <!-- social media tags -->
+    <meta property="og:title" content="Paintown" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://paintown.org" />
+    <meta property="og:image" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846" />
+    <meta property="og:description" content="Paintown.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- font awesome from BootstrapCDN -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- compiled CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/paintown-3.6.0.css" />
+
+    <!-- compiled JavaScript -->
+    <script type="text/javascript" src="assets/paintown-3.6.0.js"></script>
+
+    <!-- it's stupid to have to load it here, but this is for the +1 button -->
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+      { "parsetags": "explicit" }
+    </script>
+  </head>
+  <body>
+    <div class="main-content">
+        <div class="col-sm-12">
+            <div class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
+                          ng-click="menuCollapsed = ! menuCollapsed">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand">
+                          <img src="assets/images/paintown-sm.png" alt="Paintown" />
+                          <small>
+                              <a href="http://paintown.org">
+                                  v3.6.0
+                              </a>
+                          </small>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" collapse="menuCollapsed">
+                    <ul class="nav navbar-nav">
+                        <li ui-sref-active="active" ng-repeat="item in menuItems" ng-class="item.type == 'dropdown' ? 'dropdown' + $index : ''">
+                            <a ng-if="item.type == 'internal'" href ui-sref="{{item.url}}">
+                                <i class="fa {{item.icon}}"></i>
+                                {{item.name}}
+                            </a>
+                            <a ng-if="item.type == 'external'" href="{{item.url}}">
+                                <i class="fa {{item.icon}}"></i>
+                                {{item.name}}
+                            </a>
+                            <a ng-if="item.type == 'dropdown'" class="dropdown-toggle" data-toggle="{{'dropdown' + $index}}" role="button" aria-expanded="false">
+                                <i class="fa {{item.icon}}"></i>
+                                {{item.name}}
+                                <span class="caret"></span>
+                            </a>
+                            <ul ng-if="item.type == 'dropdown'" class="dropdown-menu" role="menu">
+                                <li ui-sref-active="active" ng-repeat="sub in item.menus">
+                                    <a ng-if="sub.type == 'internal'" href ui-sref="{{sub.url}}">
+                                        <i class="fa {{sub.icon}}"></i>
+                                        {{sub.name}}
+                                    </a>
+                                    <a ng-if="sub.type == 'external'" href="{{sub.url}}">
+                                        <i class="fa {{sub.icon}}"></i>
+                                        {{sub.name}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main -->
+        <div class="container" ui-view="main"></div>
+
+        <!-- Footer -->
+        <div class="navbar-fixed-bottom">
+            <p class="navbar-text pull-right">
+                Copyright 2014&nbsp;&copy;&nbsp;
+                <iframe
+                        src="http://ghbtns.com/github-btn.html?user=kazzmir&type=follow"
+                        allowtransparency="true"
+                        frameborder="0"
+                        scrolling="0"
+                        width="125"
+                        height="20">
+                </iframe>
+            </p>
+        </div>
+    </div>
+  </body>
+</html>
