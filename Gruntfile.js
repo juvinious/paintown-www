@@ -148,6 +148,16 @@ module.exports = function ( grunt ) {
             expand: true
           }
         ]
+      },
+      release: {
+        files: [
+          {
+            src: ['**'],
+            dest: 'gh-pages',
+            cwd: '<%= compile_dir %>',
+            expand: true
+          }
+        ]
       }
     },
 
@@ -563,7 +573,7 @@ module.exports = function ( grunt ) {
    * minifying your code.
    */
   grunt.registerTask( 'compile', [
-    'less:compile', 'copy:compile_assets', 'ngmin', 'concat:compile_js', 'uglify', 'index:compile'
+    'less:compile', 'copy:compile_assets', 'ngmin', 'concat:compile_js', 'uglify', 'index:compile', 'copy:release'
   ]);
 
   /**
