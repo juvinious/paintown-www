@@ -1,0 +1,32 @@
+/**
+ * These are the variables used throughout the application. This is where 
+ * overwrites that are not specific to components should be maintained.
+ */
+
+/**
+ * Typography-related.
+ */
+
+@sansFontFamily: 'Roboto', sans-serif;
+
+/**
+ * Colors
+ */
+@bg-blue: #2F4E6F;
+@light-blue: #98B1C4;
+@lm-blue: #88a1b4;
+@med-blue: #2F4E6F;
+@dark-blue: #16385D;
+/*@darker-blue: url('../images/banner-fill.png') repeat-x top left;*/
+@darker-blue: #0E1E35;
+@dark-green: #4B821E;
+@green: #58B90A;
+
+/* Mixin */
+.transition (@prop: all, @time: 1s, @ease: linear) {
+  -webkit-transition: @prop @time @ease;
+  -moz-transition: @prop @time @ease;
+  -o-transition: @prop @time @ease;
+  -ms-transition: @prop @time @ease;
+  transition: @prop @time @ease;
+}

@@ -1,0 +1,78 @@
+<div class="row" id="top">
+    <div class="well well-large collapse in text-left">
+        <h1 class="page-header">
+            Downloads<br>
+            <small>
+                For all platforms, test ports, mods and other misc. files
+            </small>
+        </h1>
+        <quick-menu></quick-menu>
+        <h2>Distribution Packages and Information</h2>
+        <ul>
+            <li><a href="http://sourceforge.net/apps/trac/paintown/wiki/UbuntuInstallation">Ubuntu PPA directions</a></li>
+            <li><a href="http://www.linuxpackages.net/pkg_details.php?id=12864">Slackware package</a></li>
+        </ul>
+        <div class="alert alert-info">Windows - The installer creates an entry in the start menu under Programs -> Games -> Paintown</div>
+        <h2 id="downloads">
+            Downloads by Release
+        </h2>
+        <div class="panel-group">
+            <div class="panel panel-default" ng-repeat="dl in downloads">
+                <div id="downloads-{{$index+1}}" class="panel-heading">{{dl[0].version}}</div>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Download Link</th>
+                    </tr>
+                    <tr ng-repeat="item in dl">
+                        <td>{{item.title}}</td>
+                        <td>{{item.date | date:'medium'}}</td>
+                        <td>
+                            <a href="{{item.link}}">
+                                <button type="button" class="btn btn-primary pull-right">
+                                    <i class="fa {{item.icon}}"></i> Download
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <h2 id="mods">
+            Mods by Release
+        </h2>
+        <p>
+            To install a mod download the zip file and unzip it to your mod path. Each OS has a different mod path:
+            <ul>
+                <li>Windows - Paintown installation directory (c:\program files\paintown)</li>
+                <li>Linux - ~/.paintown</li>
+                <li>OSX - ~/.paintown</li>
+            </ul>
+        </p>
+        <div class="panel-group">
+            <div class="panel panel-default" ng-repeat="mod in mods">
+                <div id="mods-{{$index+1}}" class="panel-heading">{{mod[0].version}}</div>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Download Link</th>
+                    </tr>
+                    <tr ng-repeat="item in mod">
+                        <td>{{item.title}}</td>
+                        <td>{{item.date | date:'medium'}}</td>
+                        <td>
+                            <a href="{{item.link}}">
+                                <button type="button" class="btn btn-primary pull-right">
+                                    <i class="fa {{item.icon}}"></i> Download
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,131 @@
+<div class="row" id="top">
+    <div class="well well-large collapse in text-left">
+        <h1 class="page-header">
+            Development<br>
+            <small>
+                Development related information
+            </small>
+        </h1>
+        <quick-menu></quick-menu>
+        <div class="panel-group" id="svn">
+            <div class="panel panel-default">
+                <div class="panel-heading">Subversion</div>
+                <div class="panel-body">
+                    <p>Repository: http://svn.code.sourceforge.net/p/paintown/code/trunk</p>
+                    <p><a href="http://sourceforge.net/p/paintown/code/?source=navbar" class="btn btn-default">Browse SVN</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="commits">
+            <div class="panel panel-default">
+                <div class="panel-heading">Recent Commits</div>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Datetime</th>
+                        <th>Commit</th>
+                    </tr>
+                    <tr ng-repeat="commit in commits">
+                        <td>{{commit.date | date:'medium'}}</td>
+                        <td><a href="{{commit.link}}">{{commit.title}}</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel-group" id="faq">
+            <div class="panel panel-default">
+                <div class="panel-heading">FAQ</div>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Question</th>
+                        <th>Answer</th>
+                    </tr>
+                    <tr ng-repeat="item in faq">
+                        <td>{{item.q}}</td>
+                        <td>{{item.a}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel-group" id="testing">
+            <div class="panel panel-default">
+                <div class="panel-heading">Testing / Unstable</div>
+                <div class="panel-body">
+                    <p>To get the absolute latest version of Paintown <em>(which is not guaranteed to work)</em> please see the wiki page for building from source.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="other">
+            <div class="panel panel-default">
+                <div class="panel-heading">Other links</div>
+                <div class="panel-body">
+                    <p>Paintown on ohloh.net <a href="https://www.openhub.net/p/paintown" class="btn btn-default">View <i class="fa fa-angle-double-right"></i></a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="gource">
+            <div class="panel panel-default">
+                <div class="panel-heading">SVN Visualization w/ Gource</div>
+                <div class="panel-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <h3>2013</h3>
+                        <iframe class="embed-responsive-item" width="100%" src="//www.youtube.com/embed/zmzFOvIEFxo?wmode=transparent" allowfullscreen></iframe>
+                        <h3>2012</h3>
+                        <iframe class="embed-responsive-item" width="100%" src="//www.youtube.com/embed/0xiV7bSxxuY?wmode=transparent" allowfullscreen></iframe>
+                        <h3>2011</h3>
+                        <iframe class="embed-responsive-item" width="100%" src="//www.youtube.com/embed/Iz49GdQ3SA8?wmode=transparent" allowfullscreen></iframe>
+                        <h3>2010</h3>
+                        <iframe class="embed-responsive-item" width="100%" src="//www.youtube.com/embed/W3z46OqbRQ4?wmode=transparent" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-group" id="changelog">
+            <div class="panel panel-default">
+                <div class="panel-heading">Changelog</div>
+                <div class="panel-body">
+                    <h3>3.4.0</h3>
+                    <h4>Paintown Engine:</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">Pressing ESC brings up a menu in the game</li>
+                        <li class="list-group-item">Input uses events in the menu</li>
+                        <li class="list-group-item">New thunder and rain effects</li>
+                        <li class="list-group-item">Added character MJ</li>
+                        <li class="list-group-item">Ported backend to SDL</li>
+                        <li class="list-group-item">Added ability to play .nsf, .gym, etc files</li>
+                    </ul>
+                    <h4>Mugen Engine:</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">Parsers much improved</li>
+                        <li class="list-group-item">Helpers implemented</li>
+                        <li class="list-group-item">A few more characters work besides KFM</li>
+                        <li class="list-group-item">Mugen script is compiled much more efficiently</li>
+                        <li class="list-group-item">Tons of other bug fixes</li>
+                        <li class="list-group-item">Roughly 80% done</li>
+                    </ul>
+                    <h4>Other:</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item">Mostly functional to the Wii</li>
+                        <li class="list-group-item">Partial port to the psp</li>
+                    </ul>
+                    <h3>3.2</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">Python scripting module added</li>
+                        <li class="list-group-item">More options added to the menu</li>
+                        <li class="list-group-item">Added player Wolverine</li>
+                        <li class="list-group-item">Game takes screenshots while playing</li>
+                        <li class="list-group-item">Network mode more reliable</li>
+                        <li class="list-group-item">Players have score</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
