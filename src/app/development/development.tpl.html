@@ -7,12 +7,12 @@
             </small>
         </h1>
         <quick-menu></quick-menu>
-        <div class="panel-group" id="svn">
+        <div class="panel-group" id="git">
             <div class="panel panel-default">
-                <div class="panel-heading">Subversion</div>
+                <div class="panel-heading">Git</div>
                 <div class="panel-body">
-                    <p>Repository: http://svn.code.sourceforge.net/p/paintown/code/trunk</p>
-                    <p><a href="http://sourceforge.net/p/paintown/code/?source=navbar" class="btn btn-default">Browse SVN</a></p>
+                    <p>https://github.com/kazzmir/paintown</p>
+                    <p><a href="https://github.com/kazzmir/paintown" class="btn btn-default">Browse Git</a></p>
                 </div>
             </div>
         </div>
@@ -24,10 +24,21 @@
                     <tr>
                         <th>Datetime</th>
                         <th>Commit</th>
+                        <th>Author</th>
                     </tr>
                     <tr ng-repeat="commit in commits">
                         <td>{{commit.date | date:'medium'}}</td>
                         <td><a href="{{commit.link}}">{{commit.title}}</a></td>
+                        <td>
+                            <iframe
+                                ng-src={{commit.author}}
+                                allowtransparency="true"
+                                frameborder="0"
+                                scrolling="0"
+                                width="125"
+                                height="20">
+                            </iframe>
+                        </td>
                     </tr>
                 </table>
             </div>

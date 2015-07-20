@@ -18,11 +18,11 @@ angular.module( 'ngBoilerplate.development', [
   });
 })
 
-.controller( 'DevCtrl', function DevCtrl( $scope, feed, icons) {
+.controller( 'DevCtrl', function DevCtrl( $scope, feed, icons, $sce) {
     $scope.quickmenu = [
         {
-            id: 'svn',
-            title: 'Subversion'
+            id: 'git',
+            title: 'Git'
         },
         {
             id: 'commits',
@@ -63,6 +63,17 @@ angular.module( 'ngBoilerplate.development', [
             a: 'No, Paintown was inspired by various other projects but the code is 100% original.'
         }
     ];
+
+    $scope.userlink = function(user){
+        return '<iframe' +
+            'src="http://ghbtns.com/github-btn.html?user=' + user + '&type=follow"' +
+            'allowtransparency="true"' +
+            'frameborder="0"' +
+            'scrolling="0"' +
+            'width="125"' +
+            'height="20">' +
+            '</iframe>';
+    };
     $scope.commits = [];
     //feed.get('https://sourceforge.net/p/paintown/code/feed')
     feed.get('https://github.com/kazzmir/paintown/commits/master.atom')
@@ -73,7 +84,8 @@ angular.module( 'ngBoilerplate.development', [
                     $scope.commits.push({
                         title: value.title,
                         link: value.link,
-                        date: new Date(value.publishedDate)
+                        date: new Date(value.publishedDate),
+                        author: $sce.trustAsResourceUrl('http://ghbtns.com/github-btn.html?user=' + value.author + '&type=follow')
                     });
                 });
             }
