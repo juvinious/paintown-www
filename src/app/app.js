@@ -122,6 +122,8 @@ angular.module( 'ngBoilerplate', [
   });
 
   $scope.menuItems = menu.get();
+
+  $scope.currentYear = (new Date()).getFullYear();
 })
 
 ;
