@@ -64,7 +64,8 @@ angular.module( 'ngBoilerplate.development', [
         }
     ];
     $scope.commits = [];
-    feed.get('https://sourceforge.net/p/paintown/code/feed')
+    //feed.get('https://sourceforge.net/p/paintown/code/feed')
+    feed.get('https://github.com/kazzmir/paintown/commits/master.atom')
         .success(function(response){
             if (response.responseData) {
                 angular.forEach(response.responseData.feed.entries, function (value, key) {
