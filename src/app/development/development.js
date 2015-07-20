@@ -18,7 +18,7 @@ angular.module( 'ngBoilerplate.development', [
   });
 })
 
-.controller( 'DevCtrl', function DevCtrl( $scope, feed, icons, $sce) {
+.controller( 'DevCtrl', function DevCtrl( $scope, feed, icons, $sce, $http) {
     $scope.quickmenu = [
         {
             id: 'git',
@@ -64,29 +64,26 @@ angular.module( 'ngBoilerplate.development', [
         }
     ];
 
-    $scope.userlink = function(user){
-        return '<iframe' +
-            'src="http://ghbtns.com/github-btn.html?user=' + user + '&type=follow"' +
-            'allowtransparency="true"' +
-            'frameborder="0"' +
-            'scrolling="0"' +
-            'width="125"' +
-            'height="20">' +
-            '</iframe>';
-    };
     $scope.commits = [];
+    $scope.users = [];
     //feed.get('https://sourceforge.net/p/paintown/code/feed')
     feed.get('https://github.com/kazzmir/paintown/commits/master.atom')
         .success(function(response){
             if (response.responseData) {
                 angular.forEach(response.responseData.feed.entries, function (value, key) {
                     //console.log(value);
+                    if (!(value.author in $scope.users)){
+                        $http.get('https://api.github.com/users/' + value.author).then(function(response){
+                            $scope.users[value.author] = response.data;
+                        });
+                    }
                     $scope.commits.push({
                         title: value.title,
                         link: value.link,
                         date: new Date(value.publishedDate),
-                        author: $sce.trustAsResourceUrl('http://ghbtns.com/github-btn.html?user=' + value.author + '&type=follow')
+                        author: value.author
                     });
+                    //author: $sce.trustAsResourceUrl('http://ghbtns.com/github-btn.html?user=' + value.author + '&type=follow')
                 });
             }
         });

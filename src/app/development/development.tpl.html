@@ -30,6 +30,11 @@
                         <td>{{commit.date | date:'medium'}}</td>
                         <td><a href="{{commit.link}}">{{commit.title}}</a></td>
                         <td>
+                            <a href="https://www.github.com/{{commit.author}}">
+                                <img width="32" height="32" src="{{users[commit.author].avatar_url}}" />&nbsp;
+                                {{users[commit.author].login}}
+                            </a>
+                            <!--
                             <iframe
                                 ng-src={{commit.author}}
                                 allowtransparency="true"
@@ -38,6 +43,7 @@
                                 width="125"
                                 height="20">
                             </iframe>
+                            -->
                         </td>
                     </tr>
                 </table>
