@@ -1,9 +1,0 @@
-*.sw*
-*~
-build/
-bin/
-node_modules/
-vendor/
-.idea/
-projectFilesBackup/
-gh-pages/
