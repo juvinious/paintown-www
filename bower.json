@@ -9,6 +9,7 @@
     "angular-ui-router": "~0.2"
   },
   "dependencies": {
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "fluidvids": "https://github.com/toddmotto/fluidvids.git#~2.4.1"
   }
 }

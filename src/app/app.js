@@ -115,10 +115,16 @@ angular.module( 'ngBoilerplate', [
 })
 
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location, menu ) {
+    /* Setup fluidvids */
+    fluidvids.init({
+        selector: ['iframe', 'object'], // runs querySelectorAll()
+        players: ['www.youtube.com', 'player.vimeo.com'] // players to support
+    });
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
       $scope.pageTitle = toState.data.pageTitle + ' | Paintown' ;
     }
+      fluidvids.render();
   });
 
   $scope.menuItems = menu.get();

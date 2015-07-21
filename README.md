@@ -15,10 +15,10 @@ $ grunt watch
 
 Finally, open `file:///path/to/www-new/build/index.html` in your browser.
 
-## Compile
+## Build and Compile (default task)
 
 ```sh
-$ grunt compile
+$ grunt
 ```
 
 Outputs to bin directory
