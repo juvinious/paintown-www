@@ -23,11 +23,13 @@
                 <table class="table table-striped">
                     <tr>
                         <th>Datetime</th>
+                        <th>Repository</th>
                         <th>Commit</th>
                         <th>Author</th>
                     </tr>
-                    <tr ng-repeat="commit in commits">
+                    <tr ng-repeat="commit in commits | orderBy:'date':true">
                         <td>{{commit.date | date:'medium'}}</td>
+                        <td><a href="{{commit.origin}}">{{commit.repository}}</a></td>
                         <td><a href="{{commit.link}}">{{commit.title}}</a></td>
                         <td>
                             <a href="https://www.github.com/{{commit.author}}">

@@ -66,27 +66,34 @@ angular.module( 'ngBoilerplate.development', [
 
     $scope.commits = [];
     $scope.users = [];
-    //feed.get('https://sourceforge.net/p/paintown/code/feed')
-    feed.get('https://github.com/kazzmir/paintown/commits/master.atom')
-        .success(function(response){
-            if (response.responseData) {
-                angular.forEach(response.responseData.feed.entries, function (value, key) {
-                    //console.log(value);
-                    if (!(value.author in $scope.users)){
-                        $http.get('https://api.github.com/users/' + value.author).then(function(response){
-                            $scope.users[value.author] = response.data;
+
+    var repositories = {
+        paintown: 'https://github.com/kazzmir/paintown',
+        'r-tech1': 'https://github.com/kazzmir/r-tech1'
+    };
+
+    angular.forEach(repositories, function(url, name) {
+        feed.get(url + '/commits/master.atom')
+            .success(function (response) {
+                if (response.responseData) {
+                    angular.forEach(response.responseData.feed.entries, function (value, key) {
+                        if (!(value.author in $scope.users)) {
+                            $http.get('https://api.github.com/users/' + value.author).then(function (response) {
+                                $scope.users[value.author] = response.data;
+                            });
+                        }
+                        $scope.commits.push({
+                            origin: url,
+                            repository: name,
+                            title: value.title,
+                            link: value.link,
+                            date: new Date(value.publishedDate),
+                            author: value.author
                         });
-                    }
-                    $scope.commits.push({
-                        title: value.title,
-                        link: value.link,
-                        date: new Date(value.publishedDate),
-                        author: value.author
                     });
-                    //author: $sce.trustAsResourceUrl('http://ghbtns.com/github-btn.html?user=' + value.author + '&type=follow')
-                });
-            }
-        });
+                }
+            });
+    });
 })
 
 ;
