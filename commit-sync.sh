@@ -27,7 +27,7 @@ push(){
 echo "Are you sure you want to commit?"
 select yn in "Yes" "No"; do
     case $yn in
-        Yes ) push $1; break;;
+        Yes ) push "$1"; break;;
         No ) exit;;
     esac
 done
