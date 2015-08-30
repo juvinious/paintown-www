@@ -65,38 +65,26 @@ angular.module( 'ngBoilerplate', [
                             icon: 'fa-envelope'
                         },
                         {
-                            name: 'General support on Sourceforge',
-                            url: 'https://sourceforge.net/projects/paintown/support?source=navbar',
-                            type: 'external',
-                            icon: 'fa-question-circle'
-                        },
-                        {
-                            name: 'Forums',
-                            url: 'https://sourceforge.net/p/paintown/discussion/?source=navbar',
-                            type: 'external',
-                            icon: 'fa-book'
-                        },
-                        {
                             name: 'IRC',
                             url: 'http://webchat.freenode.net/?randomnick=1&channels=paintown',
                             type: 'external',
                             icon: 'fa-comments'
                         },
                         {
-                            name: 'Report a bug',
-                            url: 'https://sourceforge.net/p/paintown/tickets/',
+                            name: 'Report a bug (Issues)',
+                            url: 'https://github.com/kazzmir/paintown/issues',
                             type: 'external',
                             icon: 'fa-bug'
                         },
                         {
                             name: 'Wiki',
-                            url: 'https://sourceforge.net/p/paintown/wiki/Home/',
+                            url: 'https://github.com/kazzmir/paintown/wiki',
                             type: 'external',
                             icon: 'fa-book'
                         },
                         {
                             name: 'Donate',
-                            url: 'https://sourceforge.net/p/paintown/donate/',
+                            url: 'https://www.paypal.com/cgi-bin/webscr?item_name=Donation+to+PainTown&cmd=_donations&business=workmin%40ccs.neu.edu',
                             type: 'external',
                             icon: 'fa-credit-card'
                         }
