@@ -1,4 +1,4 @@
-<div class="row" id="top">
+<div class="container" id="top">
     <div class="well well-large collapse in text-left">
         <h1 class="page-header">
             Media<br>
@@ -11,8 +11,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Screenshots</div>
                 <div class="panel-body">
-                    <p>
-                        <a href="images/scr1.png"><img src="images/scr1.png"></a><a href="images/scr2.png"><img src="images/scr2.png"></a><a href="images/scr3.png"><img src="images/scr3.png"></a>                    </p>
+                    <div class="col-sm-6 col-md-4">
+                        <a class="thumbnail" href="assets/images/scr1.png"><img src="assets/images/scr1.png"></a>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <a class="thumbnail" href="assets/images/scr2.png"><img src="assets/images/scr2.png"></a>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <a class="thumbnail" href="assets/images/scr3.png"><img src="assets/images/scr3.png"></a>
+                    </div>
                     <a type="button" class="btn btn-default pull-right" href="http://sourceforge.net/apps/gallery/paintown/">More screenshots on the gallery</a>
                 </div>
             </div>
@@ -22,14 +29,39 @@
                 <div class="panel-heading">Videos</div>
                 <div class="panel-body">
                     <div class="col-sm-6">
-                        <h3>3.3.1 tech demo</h3>
-                        <iframe width="320" height="240" src="//www.youtube.com/embed/Imk8dR7Gsek?wmode=transparent" frameborder="0" wmode="Opaque" allowfullscreen=""></iframe>                        <h3>Running on the OLPC</h3>
-                        <iframe width="320" height="240" src="//www.youtube.com/embed/f1JRPXZtJaU&amp;hl?wmode=transparent" frameborder="0" wmode="Opaque" allowfullscreen=""></iframe>                        <h3>Running on the Wii</h3>
-                        <iframe width="320" height="240" src="//www.youtube.com/embed/GS49ecqpUtk?wmode=transparent" frameborder="0" wmode="Opaque" allowfullscreen=""></iframe>                    </div>
+                        <div class="page-header">
+                            <h3>3.3.1 tech demo</h3>
+                        </div>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/Imk8dR7Gsek"></iframe>
+                        </div>
+                        <div class="page-header">
+                            <h3>Running on the OLPC</h3>
+                        </div>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/f1JRPXZtJaU&amp;hl"></iframe>
+                        </div>
+                        <div class="page-header">
+                            <h3>Running on the Wii</h3>
+                        </div>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/GS49ecqpUtk"></iframe>
+                        </div>
+                    </div>
                     <div class="col-sm-6">
-                        <h3>Running on the PSP</h3>
-                        <iframe width="320" height="240" src="//www.youtube.com/embed/ysBRtz3wC1Y?wmode=transparent" frameborder="0" wmode="Opaque" allowfullscreen=""></iframe>                        <h3>Running on the Dingux</h3>
-                        <iframe width="320" height="240" src="//www.youtube.com/embed/7wTpiVu8taA?wmode=transparent" frameborder="0" wmode="Opaque" allowfullscreen=""></iframe>                    </div>
+                        <div class="page-header">
+                            <h3>Running on the PSP</h3>
+                        </div>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/ysBRtz3wC1Y"></iframe>
+                        </div>
+                        <div class="page-header">
+                            <h3>Running on the Dingux</h3>
+                        </div>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/7wTpiVu8taA"></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

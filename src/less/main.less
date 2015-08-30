@@ -99,8 +99,7 @@ h2 {
   }
 
   .navbar-default .navbar-brand {
-    color: @darker-blue;
-    background: url('assets/images/paintown-med.jpg');
+    color: white;
     padding-top: 10px;
     margin-top: 0;
     small {
@@ -260,35 +259,52 @@ h2 {
 }
 
 .panel {
-  background-color: darkgray; //@lm-blue;
+  background-color: white; //@lm-blue;
   .panel-heading {
-    background-color: darkgray; //@med-blue;
+    background-color: black; //@med-blue;
     color: white;
     font-weight: bold;
-    a {
-      color: steelblue;
-    }
   }
   .panel-body {
-    a {
-      color: @med-blue;
-    }
   }
 }
 
 .row {
-  background-color: @gray-light;
   padding: 20px;
+}
+
+.well {
+  background-color: white;
+}
+
+.btn, .btn-default {
+  color: black;
+  .transition(all .4s ease-in-out);
+}
+
+.btn-primary {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  .transition(all .4s ease-in-out);
+  &:hover {
+    background-color: @gray-light;
+    border: 1px solid @gray-light;
+  }
 }
 
 table{
   tr{
     td{
-      a{
-        color: @dark-blue;
-        .transition(all .4s ease-in-out);
-        &:hover{
-          color: @darker-blue;
+      a, a:hover, a:link, a:active, a:visited {
+        color: @gray-dark;
+        font-weight: bolder;
+        text-decoration: none;
+        text-transform: none;
+        .transition(all, .4s, ease-in-out);
+        &:hover {
+          color: @gray;
+
         }
       }
     }

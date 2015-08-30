@@ -69,7 +69,6 @@ module.exports = {
       'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/underscore/underscore-min.js',
       'vendor/underscore/underscore-min.map',
-      'vendor/fluidvids/dist/fluidvids.min.js'
     ],
     css: [
     ],
