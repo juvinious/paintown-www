@@ -31,61 +31,59 @@
   </head>
   <body>
     <div class="main-content">
-        <div class="col-sm-12">
-            <div class="navbar navbar-default">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
-                          ng-click="menuCollapsed = ! menuCollapsed">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    <div class="navbar-brand">
-                          <img src="assets/images/paintown-sm.png" alt="Paintown" />
-                          <small>
-                              <a href="http://paintown.org">
-                                  v<%= version %>
-                              </a>
-                          </small>
-                    </div>
+        <div class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
+                      ng-click="menuCollapsed = ! menuCollapsed">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                      <img src="assets/images/paintown-sm.png" alt="Paintown" />
+                      <small>
+                          <a href="http://paintown.org">
+                              v<%= version %>
+                          </a>
+                      </small>
                 </div>
-                <div class="collapse navbar-collapse" collapse="menuCollapsed">
-                    <ul class="nav navbar-nav">
-                        <li ui-sref-active="active" ng-repeat="item in menuItems" ng-class="item.type == 'dropdown' ? 'dropdown' + $index : ''">
-                            <a ng-if="item.type == 'internal'" href ui-sref="{{item.url}}">
-                                <i class="fa {{item.icon}}"></i>
-                                {{item.name}}
-                            </a>
-                            <a ng-if="item.type == 'external'" href="{{item.url}}">
-                                <i class="fa {{item.icon}}"></i>
-                                {{item.name}}
-                            </a>
-                            <a ng-if="item.type == 'dropdown'" class="dropdown-toggle" data-toggle="{{'dropdown' + $index}}" role="button" aria-expanded="false">
-                                <i class="fa {{item.icon}}"></i>
-                                {{item.name}}
-                                <span class="caret"></span>
-                            </a>
-                            <ul ng-if="item.type == 'dropdown'" class="dropdown-menu" role="menu">
-                                <li ui-sref-active="active" ng-repeat="sub in item.menus">
-                                    <a ng-if="sub.type == 'internal'" href ui-sref="{{sub.url}}">
-                                        <i class="fa {{sub.icon}}"></i>
-                                        {{sub.name}}
-                                    </a>
-                                    <a ng-if="sub.type == 'external'" href="{{sub.url}}">
-                                        <i class="fa {{sub.icon}}"></i>
-                                        {{sub.name}}
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+            </div>
+            <div class="collapse navbar-collapse" collapse="menuCollapsed">
+                <ul class="nav navbar-nav">
+                    <li ui-sref-active="active" ng-repeat="item in menuItems" ng-class="item.type == 'dropdown' ? 'dropdown' + $index : ''">
+                        <a ng-if="item.type == 'internal'" href ui-sref="{{item.url}}">
+                            <i class="fa {{item.icon}}"></i>
+                            {{item.name}}
+                        </a>
+                        <a ng-if="item.type == 'external'" href="{{item.url}}">
+                            <i class="fa {{item.icon}}"></i>
+                            {{item.name}}
+                        </a>
+                        <a ng-if="item.type == 'dropdown'" class="dropdown-toggle" data-toggle="{{'dropdown' + $index}}" role="button" aria-expanded="false">
+                            <i class="fa {{item.icon}}"></i>
+                            {{item.name}}
+                            <span class="caret"></span>
+                        </a>
+                        <ul ng-if="item.type == 'dropdown'" class="dropdown-menu" role="menu">
+                            <li ui-sref-active="active" ng-repeat="sub in item.menus">
+                                <a ng-if="sub.type == 'internal'" href ui-sref="{{sub.url}}">
+                                    <i class="fa {{sub.icon}}"></i>
+                                    {{sub.name}}
+                                </a>
+                                <a ng-if="sub.type == 'external'" href="{{sub.url}}">
+                                    <i class="fa {{sub.icon}}"></i>
+                                    {{sub.name}}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
 
         <!-- Main -->
-        <div class="container" ui-view="main"></div>
+        <div ui-view="main"></div>
 
         <!-- Footer -->
         <div class="navbar-fixed-bottom">
