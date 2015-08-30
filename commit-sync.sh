@@ -9,6 +9,14 @@ fi
 if [ ! -d "gh-pages" ]; then
     echo "Cloning gh-pages in order to push content."
     git clone git@github.com:juvinious/paintown-www.git -b gh-pages gh-pages
+    cd gh-pages
+    echo "github username: "
+    read NAME
+    git config user.name $NAME
+    echo "github email: "
+    read EMAIL
+    git config user.email $EMAIL
+    git config push.default simple
 fi
 
 echo "Building and compiling..."
