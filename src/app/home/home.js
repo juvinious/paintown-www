@@ -39,6 +39,19 @@ angular.module( 'ngBoilerplate.home', [
  * And of course we define a controller for our route.
  */
 .controller( 'HomeCtrl', function HomeController( $scope ) {
+      /*var init = function(){
+        var image = ['assets/images/akuma-anim-800.gif'];
+        var url = image[Math.floor(Math.random() * image.length)];
+        var img = new Image();
+        img.onload = function(){
+          var block = angular.element('.block');//$('.block');
+          block.css({'background-image': 'url('+url+')', 'background-size' : 'contain'});
+          block.fadeIn(1000);
+        };
+        img.src = url;
+      };
+
+      init();*/
 })
 
 ;
