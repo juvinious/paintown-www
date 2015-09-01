@@ -1,9 +1,18 @@
 .block {
   width: 100%;
-  background-color: black;
+  #gradient > .vertical(black, white);
   color: white;
-  padding: 1.5em 1.5em 5em;
-  margin-bottom: 50px;
+  padding: 2.5em 1.5em 1.5em;
+
+  @media @desktop, @desktop-xl {
+    padding: 1.5em 1.5em 1.5em;
+  }
+
+  .paintown-header {
+    @media @mobile, @tablet {
+      display: none;
+    }
+  }
 
   .container {
     text-align: center;
@@ -12,7 +21,12 @@
       line-height: 1.25;
     }
     .btn-group {
-      margin-top: 1em;
+      display: table;
+      margin: 1em auto 0;
+      @media @desktop, @desktop-xl {
+        margin: 1em 0 0;
+        display: inline-block;
+      }
       .btn {
         font-size: 21px;
         padding: 14px 24px;
@@ -31,6 +45,12 @@
       }
     }
   }
+
+  .attract {
+    /*img {
+      width: 100%;
+    }*/
+  }
 }
 
 .marketing {
@@ -38,6 +58,7 @@
     margin-bottom: 10px;
     padding: 0;
     background-color: white;
+    background: @dotted-white;
     /*color: white;*/
     border-radius: 15px;
     .page-header {
