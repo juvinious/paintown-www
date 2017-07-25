@@ -1,23 +1,39 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+
+    <!-- Navigation -->
+    <navbar></navbar>
+
+    <!-- main -->
+    <div class="content">
+      <router-view></router-view>
+    </div>
+
+    <!-- Footer -->
+    <bottomNavbar></bottomNavbar>
+
   </div>
 </template>
 
 <script>
+import navbar from './components/Navbar.vue'
+import bottomNavbar from './components/BottomNavbar.vue'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    navbar,
+    bottomNavbar
+  }
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background: linear-gradient(to bottom, #000 0, #fff 100%) repeat-x;
 }
 </style>

@@ -31,6 +31,12 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': env
     }),
+    new webpack.ProvidePlugin({ // inject ES5 modules as global vars
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Tether: 'tether'
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
@@ -55,6 +61,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       filename: process.env.NODE_ENV === 'testing'
         ? 'index.html'
         : config.build.index,
+      favicon: 'src/assets/favicon.ico',
       template: 'index.html',
       inject: true,
       minify: {
