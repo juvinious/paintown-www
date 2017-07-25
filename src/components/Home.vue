@@ -54,12 +54,12 @@
 
     <div class="container">
       <div class="row attract">
-        <div class="col-sm-6">
+        <div class="col-sm-12 col-md-6">
           <div style="width: 320px; margin: 0 auto;">
             <img class="gfyitem" data-expand="true" data-id="IlliterateSoulfulAvocet"/>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-12 col-md-6">
           <div style="width: 320px; margin: 0 auto;">
             <img class="gfyitem" data-expand="true" data-id="MarriedAlarmedBear"/>
           </div>
@@ -67,7 +67,7 @@
       </div>
       <div class="row">&nbsp;</div>
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-12 col-lg-4">
           <div class="card">
             <h4 class="card-header"><icon name="flag"></icon> Various Gameplay Engines and Modes</h4>
             <!--<img class="card-img" src="../assets/mugen.png"/>-->
@@ -84,7 +84,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-12 col-lg-4">
           <div class="card">
             <h3 class="card-header"><icon name="magic"></icon> Flexible backend</h3>
             <div class="card-block">
@@ -103,7 +103,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-12 col-lg-4">
           <div class="card">
             <h3 class="card-header"><icon name="retweet"></icon> Network</h3>
             <div class="card-block">
@@ -124,7 +124,7 @@
         &nbsp;
       </div>
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-12 col-lg-4">
           <div class="card">
             <h3 class="card-header"><icon name="circle"></icon> Scripting</h3>
             <div class="card-block">
@@ -137,7 +137,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-12 col-lg-4">
           <div class="card">
             <h4 class="card-header"><icon name="asterisk"></icon> Ports to Many Systems</h4>
             <div class="card-block">
@@ -152,7 +152,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-12 col-lg-4">
           <div class="card">
             <h3 class="card-header"><icon name="thumbs-up"></icon> BSD License</h3>
             <div class="card-block">

@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable class="pt-nav" type="inverse" variant="inverse">
+  <b-navbar toggleable class="pt-nav" type="inverse" variant="inverse" toggle-breakpoint="md">
 
     <b-nav-toggle target="nav_collapse"></b-nav-toggle>
 
