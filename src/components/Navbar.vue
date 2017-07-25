@@ -19,11 +19,11 @@
     <b-collapse is-nav id="nav_collapse">
 
       <b-nav is-nav-bar>
-        <b-nav-item to="/#">Home</b-nav-item>
-        <b-nav-item to="/about">About</b-nav-item>
-        <b-nav-item to="/downloads">Downloads</b-nav-item>
-        <b-nav-item to="/development">Development</b-nav-item>
-        <b-nav-item to="/media">Screenshots & Videos</b-nav-item>
+        <b-nav-item to="/#"><icon name="home"></icon> Home</b-nav-item>
+        <b-nav-item to="/about"><icon name="info-circle"></icon> About</b-nav-item>
+        <b-nav-item to="/downloads"><icon name="download"></icon> Downloads</b-nav-item>
+        <b-nav-item to="/development"><icon name="code"></icon> Development</b-nav-item>
+        <b-nav-item to="/media"><icon name="file"></icon> Screenshots & Videos</b-nav-item>
       </b-nav>
 
       <b-nav is-nav-bar class="ml-auto">
@@ -31,13 +31,13 @@
         <!-- Navbar dropdowns -->
         <b-nav-item-dropdown right>
           <template slot="button-content">
-            <span style="font-weight: bold;">Support</span>
+            <span style="font-weight: bold;"><icon name="question-circle"></icon> Support</span>
           </template>
-          <b-dropdown-item to="/contact">Contact</b-dropdown-item>
-          <b-dropdown-item href="http://webchat.freenode.net/?randomnick=1&channels=paintown" target="_blank">IRC</b-dropdown-item>
-          <b-dropdown-item href="https://github.com/kazzmir/paintown/issues" target="_blank">Report a Bug (Issues)</b-dropdown-item>
-          <b-dropdown-item href="https://github.com/kazzmir/paintown/wiki" target="_blank">Wiki</b-dropdown-item>
-          <b-dropdown-item href="https://www.paypal.com/cgi-bin/webscr?item_name=Donation+to+PainTown&cmd=_donations&business=workmin%40ccs.neu.edu" target="_blank">Donate</b-dropdown-item>
+          <b-dropdown-item to="/contact"><icon name="envelope"></icon> Contact</b-dropdown-item>
+          <b-dropdown-item href="http://webchat.freenode.net/?randomnick=1&channels=paintown" target="_blank"><icon name="comments"></icon> IRC</b-dropdown-item>
+          <b-dropdown-item href="https://github.com/kazzmir/paintown/issues" target="_blank"><icon name="bug"></icon> Report a Bug (Issues)</b-dropdown-item>
+          <b-dropdown-item href="https://github.com/kazzmir/paintown/wiki" target="_blank"><icon name="book"></icon> Wiki</b-dropdown-item>
+          <b-dropdown-item href="https://www.paypal.com/cgi-bin/webscr?item_name=Donation+to+PainTown&cmd=_donations&business=workmin%40ccs.neu.edu" target="_blank"><icon name="credit-card"></icon> Donate</b-dropdown-item>
         </b-nav-item-dropdown>
 
       </b-nav>
@@ -50,7 +50,7 @@
     name: 'navbar',
     data () {
       return {
-        'home': '/',
+        'home': '/#/#',
         'github': 'http://www.github.com/kazzmir/paintown',
         'current_version': '3.6.1'
       }
@@ -72,8 +72,16 @@
       }
     }
   }
+
+  .dropdown-item.active, .dropdown-item:active {
+      background-color: gray;
+  }
+
+  .navbar-inverse .navbar-nav .nav-link {
+    font-weight: bolder;
+  }
+
   .pt-nav {
-    margin-bottom: 2em;
     background-color: black !important;
     border-radius: 0;
     border: none white;

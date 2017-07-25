@@ -34,6 +34,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background: linear-gradient(to bottom, #000 0, #fff 100%) repeat-x;
 }
+  .content {
+    background: linear-gradient(to bottom, #000 0, #fff 100%) repeat-x;
+    padding-bottom: 5em;
+  }
 </style>

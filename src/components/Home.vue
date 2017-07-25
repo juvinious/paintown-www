@@ -4,7 +4,7 @@
     <div class="block">
       <div class="paintown-header">
         <div class="paintown-logo">
-          <a href="#/home">
+          <a href="/#/#">
             <h1><img src="../assets/paintown-logo-cropped-lg-trans.png" class="media img-rounded img-responsive" alt="Paintown"  /></h1>
           </a>
         </div>
@@ -35,24 +35,20 @@
             </iframe>
           </li>
         </ul>
-        <div class="btn-group" role="group">
-          <a href="http://sourceforge.net/projects/paintown/files/paintown/3.6.0/paintown-win32-3.6.0.exe/download" class="btn btn-large btn-windows" role="button">
+        <b-button-group>
+          <b-button href="http://sourceforge.net/projects/paintown/files/paintown/3.6.0/paintown-win32-3.6.0.exe/download" class="btn btn-large btn-windows" role="button">
             <i class="fa fa-windows"></i>
             Windows Installer
-          </a>
-        </div>
-        <div class="btn-group" role="group">
-          <a href="http://sourceforge.net/projects/paintown/files/paintown/3.6.0/paintown-3-6-0.dmg/download" class="btn btn-large btn-osx" role="button">
+          </b-button>
+          <b-button href="http://sourceforge.net/projects/paintown/files/paintown/3.6.0/paintown-3-6-0.dmg/download" class="btn btn-large btn-osx" role="button">
             <i class="fa fa-apple"></i>
             OSX Snow Leopard
-          </a>
-        </div>
-        <div class="btn-group" role="group">
-          <a href="https://github.com/kazzmir/paintown/archive/master.tar.gz" class="btn btn-large btn-source" role="button">
+          </b-button>
+          <b-button href="https://github.com/kazzmir/paintown/archive/master.tar.gz" class="btn btn-large btn-source" role="button">
             <i class="fa fa-code"></i>
             Source Code
-          </a>
-        </div>
+          </b-button>
+        </b-button-group>
       </div>
       <div class="row attract">
         <!--<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
@@ -68,17 +64,13 @@
       <div class="marketing">
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="page-header">
-              <h4><i class="fa fa-thumbs-up"></i> BSD License</h4>
-            </div>
+            <h4><icon name="thumbs-up"></icon> BSD License</h4>
             <p>
               Redistributable and open
             </p>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="page-header">
-              <h4><i class="fa fa-magic"></i> Flexible backend</h4>
-            </div>
+            <h4><icon name="magic"></icon> Flexible backend</h4>
             <p>
               Low CPU and GPU Requirements with backend support with multiple libraries:
             <ul>
@@ -91,25 +83,21 @@
             </p>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="page-header">
-              <h4><i class="fa fa-retweet"></i> Network</h4>
-            </div>
+            <h4><icon name="retweet"></icon> Network</h4>
             <p>
               Network enabled modes
-            <ul>
-              <li>Paintown</li>
-              <li>Preliminary MUGEN support <em>(Still buggy)</em></li>
-              <li>IRC integration</li>
-              <li>Extensible and re-usable network interface</li>
-            </ul>
+              <ul>
+                <li>Paintown</li>
+                <li>Preliminary MUGEN support <em>(Still buggy)</em></li>
+                <li>IRC integration</li>
+                <li>Extensible and re-usable network interface</li>
+              </ul>
             </p>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="page-header">
-              <h4><i class="fa fa-circle"></i> Scripting</h4>
-            </div>
+            <h4><icon name="circle"></icon> Scripting</h4>
             <ul>
               <li>Python</li>
               <li>Ruby</li>
@@ -118,9 +106,7 @@
             </ul>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="page-header">
-              <h4><i class="fa fa-flag"></i> Various Gameplay Engines and Modes</h4>
-            </div>
+            <h4><icon name="flag"></icon> Various Gameplay Engines and Modes</h4>
             <ul>
               <li>Paintown Engine</li>
               <li>M.U.G.E.N Engine</li>
@@ -129,9 +115,7 @@
             </ul>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="page-header">
-              <h4><i class="fa fa-asterisk"></i> Ports to Many Systems</h4>
-            </div>
+            <h4><icon name="asterisk"></icon> Ports to Many Systems</h4>
             <ul>
               <li>Linux</li>
               <li>Windows</li>
@@ -167,107 +151,117 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@import "~bootstrap/scss/bootstrap.scss";
+  @import "~bootstrap/scss/bootstrap.scss";
 
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-
-.block {
-  width: 100%;
-  //#gradient > .vertical(black, white);
-  color: white;
-  padding: 2.5em 1.5em 1.5em;
-
-/*@media @desktop, @desktop-xl {
-  padding: 1.5em 1.5em 1.5em;
-}*/
-
-  .paintown-header {
-  //@media @mobile, @tablet {
-  @include media-breakpoint-between(xs, md){
-    display: none;
-  }
-  //}
+  h1, h2 {
+    font-weight: normal;
   }
 
-  .container {
-    text-align: center;
-  .lead {
-    font-size: 24px;
-    line-height: 1.25;
+  ul {
+    list-style-type: none;
+    padding: 0;
   }
-  .btn-group {
-    display: table;
-    margin: 1em auto 0;
-  /*@media @desktop, @desktop-xl {
-    margin: 1em 0 0;
+
+  li {
     display: inline-block;
-  }*/
-    .btn {
-      font-size: 21px;
-      padding: 14px 24px;
+    margin: 0 10px;
+  }
+
+  a {
+    color: #42b983;
+  }
+
+  .block {
+    width: 100%;
+    //#gradient > .vertical(black, white);
+    color: white;
+    padding: 2.5em 1.5em 1.5em;
+    text-align: center;
+
+    /*@media @desktop, @desktop-xl {
+      padding: 1.5em 1.5em 1.5em;
+    }*/
+
+    .paintown-header {
+      img {
+        margin: 0 auto;
+      }
+      //@media @mobile, @tablet {
+      @include media-breakpoint-between(xs, sm){
+        display: none;
+      }
+      //}
     }
-    .btn-windows {
-      background-color: orangered;
-      border-color: orangered;
+
+    .container {
+      text-align: center;
+      margin-bottom: 1em;
+      .lead {
+        font-size: 24px;
+        line-height: 1.25;
+      }
+      .social-buttons {
+        li {
+        }
+      }
+      .btn-group {
+        display: table;
+        margin: 1em auto 0;
+        /*@media @desktop, @desktop-xl {
+          margin: 1em 0 0;
+          display: inline-block;
+        }*/
+        .btn {
+          font-size: 21px;
+          padding: 14px 24px;
+        }
+        .btn-windows {
+          background-color: orangered;
+          border-color: orangered;
+        }
+        .btn-osx {
+          background-color: orange;
+          border-color: orange;
+        }
+        .btn-source {
+          background-color: yellow;
+          border-color: yellow;
+        }
+      }
     }
-    .btn-osx {
-      background-color: orange;
-      border-color: orange;
-    }
-    .btn-source {
-      background-color: yellow;
-      border-color: yellow;
+
+    .attract {
+      img {
+        width: 100%;
+      }
+      margin-top: 1em;
+      margin-bottom: 1em;
     }
   }
-}
 
-.attract {
-img {
-  width: 100%;
-}
-}
-}
+  .marketing {
+    margin-bottom: 1em;
+    border-radius: 15px;
+    .row {
+      margin-bottom: 10px;
+      border-radius: 15px;
+      background: white url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHElEQVQIW2M8f/78f0NDQ0YGKIAzMARgKjFUAABgXQgFprntcgAAAABJRU5ErkJggg==);
+    }
 
-.marketing {
-.row {
-  margin-bottom: 10px;
-  padding: 0;
-  background: white;
-  /*color: white;*/
-  border-radius: 15px;
-.page-header {
-  color: #333;
-  border-bottom-color: #333;
-}
-}
+    .row:last-child {
+      margin-bottom: 0;
+    }
 
-.row:last-child {
-  margin-bottom: 0;
-}
-
-h4 [class*=" icon-"], h4 [class^="icon-"] {
-  margin-right: 5px;
-  vertical-align: -10%;
-  font-size: 28px;
-  line-height: 1;
-}
-}
+    h4 [class*=" icon-"], h4 [class^="icon-"] {
+      margin-right: 5px;
+      vertical-align: -10%;
+      font-size: 28px;
+      line-height: 1;
+    }
+    h4 {
+      margin-bottom: 1em;
+    }
+  }
 
 
 
