@@ -10,10 +10,10 @@
         </div>
       </div>
       <div class="container">
-        <p class="lead">
+        <p class="lead" style="text-align:center;">
           If you are looking for a side-scrolling, action packed game like you used to play or if you are looking for an extensible engine to write your own game, look no further
         </p>
-        <ul class="list-inline social-buttons">
+        <ul class="list-inline social-buttons" style="text-align: center;">
           <li>
             <iframe
               src="http://ghbtns.com/github-btn.html?user=kazzmir&amp;type=follow&amp;count=true"
@@ -50,91 +50,119 @@
           </b-button>
         </b-button-group>
       </div>
-      <div class="row attract">
-        <!--<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
-            <img src="assets/images/akuma-anim-320.gif" class="center-block">
-        </div>-->
-        <div style="width: 450px; margin: 0 auto;">
-          <img class="gfyitem" data-expand="true" data-id="IlliterateSoulfulAvocet"/>
-        </div>
-      </div>
     </div>
 
     <div class="container">
-      <div class="marketing">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <h4><icon name="thumbs-up"></icon> BSD License</h4>
-            <p>
-              Redistributable and open
-            </p>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <h4><icon name="magic"></icon> Flexible backend</h4>
-            <p>
-              Low CPU and GPU Requirements with backend support with multiple libraries:
-            <ul>
-              <li><a href="http://alleg.sourceforge.net/">Allegro    &raquo;</a></li>
-              <li><a href="https://www.libsdl.org/">SDL    &raquo;</a></li>
-              <li>Music Support - Mod, S3M, XM, IT, MP3, OGG and many more Modules</li>
-              <li>Fonts - Freetype2 and image based</li>
-              <li>Images - png and jpeg</li>
-            </ul>
-            </p>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <h4><icon name="retweet"></icon> Network</h4>
-            <p>
-              Network enabled modes
-              <ul>
-                <li>Paintown</li>
-                <li>Preliminary MUGEN support <em>(Still buggy)</em></li>
-                <li>IRC integration</li>
-                <li>Extensible and re-usable network interface</li>
-              </ul>
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <h4><icon name="circle"></icon> Scripting</h4>
-            <ul>
-              <li>Python</li>
-              <li>Ruby</li>
-              <li>Scheme like configuration files</li>
-              <li>Extensible to easily implement others</li>
-            </ul>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <h4><icon name="flag"></icon> Various Gameplay Engines and Modes</h4>
-            <ul>
-              <li>Paintown Engine</li>
-              <li>M.U.G.E.N Engine</li>
-              <li>Platformer Engine</li>
-              <li>Asteroid Demo</li>
-            </ul>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <h4><icon name="asterisk"></icon> Ports to Many Systems</h4>
-            <ul>
-              <li>Linux</li>
-              <li>Windows</li>
-              <li>OSX</li>
-              <li>Android</li>
-              <li>Wii</li>
-              <li>PS3</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
       <div class="row attract">
-        <div style="width: 450px; margin: 0 auto;">
-          <img class="gfyitem" data-expand="true" data-id="MarriedAlarmedBear"/>
+        <div class="col-sm-6">
+          <div style="width: 320px; margin: 0 auto;">
+            <img class="gfyitem" data-expand="true" data-id="IlliterateSoulfulAvocet"/>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div style="width: 320px; margin: 0 auto;">
+            <img class="gfyitem" data-expand="true" data-id="MarriedAlarmedBear"/>
+          </div>
         </div>
       </div>
+      <div class="row">&nbsp;</div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <h4 class="card-header"><icon name="flag"></icon> Various Gameplay Engines and Modes</h4>
+            <!--<img class="card-img" src="../assets/mugen.png"/>-->
+            <div class="card-block">
+              <p class="card-text">
+                Low CPU and GPU Requirements with backend support with multiple libraries:
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Paintown Engine</li>
+              <li class="list-group-item">M.U.G.E.N Engine</li>
+              <li class="list-group-item">Platformer Engine</li>
+              <li class="list-group-item">Asteroid Demo</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <h3 class="card-header"><icon name="magic"></icon> Flexible backend</h3>
+            <div class="card-block">
+              <p class="card-text">
+                Low CPU and GPU Requirements with backend support with multiple libraries
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Music Support - Mod, S3M, XM, IT, MP3, OGG and many more Modules</li>
+              <li class="list-group-item">Fonts - Freetype2 and image based</li>
+              <li class="list-group-item">Images - png and jpeg</li>
+            </ul>
+            <div class="card-block">
+              <a href="http://alleg.sourceforge.net" class="card-link">Allegro    &raquo;</a>
+              <a href="https://www.libsdl.org" class="card-link">SDL    &raquo;</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <h3 class="card-header"><icon name="retweet"></icon> Network</h3>
+            <div class="card-block">
+              <p class="card-text">
+                Network enabled modes
+              </p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Paintown</li>
+                <li class="list-group-item">Preliminary MUGEN support <em>(Still buggy)</em></li>
+                <li class="list-group-item">IRC integration</li>
+                <li class="list-group-item">Extensible and re-usable network interface</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        &nbsp;
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <h3 class="card-header"><icon name="circle"></icon> Scripting</h3>
+            <div class="card-block">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Python</li>
+                <li class="list-group-item">Ruby</li>
+                <li class="list-group-item">Scheme like configuration files</li>
+                <li class="list-group-item">Extensible to easily implement others</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <h4 class="card-header"><icon name="asterisk"></icon> Ports to Many Systems</h4>
+            <div class="card-block">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Linux</li>
+                <li class="list-group-item">Windows</li>
+                <li class="list-group-item">OSX</li>
+                <li class="list-group-item">Android</li>
+                <li class="list-group-item">Wii</li>
+                <li class="list-group-item">PS3</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <h3 class="card-header"><icon name="thumbs-up"></icon> BSD License</h3>
+            <div class="card-block">
+              <p class="card-text">Redistributable and open.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">&nbsp;</div>
     </div>
-
   </div>
 </template>
 
@@ -194,7 +222,7 @@ export default {
     }
 
     .container {
-      text-align: center;
+      text-align: left;
       margin-bottom: 1em;
       .lead {
         font-size: 24px;
