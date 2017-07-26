@@ -1,3 +1,3 @@
 #!/bin/bash
-bundle install --path vendor/bundle
-bundle exec ruby sf-files-to-github-releases.rb
+bundle install --path vendor/bundle &> run.log
+bundle exec ruby sf-files-to-github-releases.rb "$@"
