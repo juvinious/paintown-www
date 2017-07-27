@@ -1,8 +1,0 @@
-vendor
-files
-config/*
-config.json
-manifest.json
-*.swp
-.bundle
-run.log
