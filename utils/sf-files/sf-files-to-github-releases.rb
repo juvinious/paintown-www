@@ -7,14 +7,20 @@ require 'pathname'
 require 'fileutils'
 require 'json'
 require 'rest-client'
+require 'filemagic'
+require 'logger'
 
 CONFIG_DIR = './config/'
 CONFIG_FILE = CONFIG_DIR + 'config.json'
+LOG_FILE = './run.log'
+
+$log = Logger.new(LOG_FILE, File::WRONLY | File::APPEND)
 
 def read_json(filename)
     puts "Reading data".green + " from " + "#{filename}".yellow
     unless File.exist? filename
         puts "Error! Could not find file '".red + "#{filename}".light_blue + "'!".red
+        $log.error("Interrupted:  Could not find file #{filename}")
         exit
     end
     return JSON.parse(File.read filename)
@@ -38,6 +44,7 @@ def get_settings()
         'files' => 'https://sourceforge.net/projects/paintown/rss?path=/',
         'manifest' => CONFIG_DIR + 'manifest.json',
         'release_manifest' => CONFIG_DIR + 'releases.json',
+        'file_manifest' => CONFIG_DIR + 'files.json',
         'api' => 'https://api.github.com',
         'accept' => 'application/vnd.github.v3+json',
         'oauth_token' => '',
@@ -67,7 +74,7 @@ ARGV.each do |arg|
         when '-f', '--fetch'           then args[:fetch] = ''
         when '-c', '--create-manifest' then args[:manifest] = true
         when '-r', '--create-releases' then args[:releases] = true
-        when '-u', '--upload-releases' then args[:releases] = true
+        when '-u', '--upload-releases' then args[:upload] = true
         else
             if args[:fetch].eql? ''
                 args[:fetch] = arg
@@ -137,16 +144,29 @@ end
 def retrieve_files(settings)
     json = read_json(settings['manifest'])
 
+    files = {}
+
     json.each do |key, version|
         version.each do |content|
             file = "./files/#{content['version']}/" + content['file']
+           
             if !File.exist? file
                 save_file(content['version'], content['file'], content['link'])
             else
                 puts "File".green + " #{content['file']}".light_blue + " already in cache," + " skipping".yellow + "..."
             end
+            
+            unless files.key? content['version']
+                files[content['version']] = []
+            end
+            files[content['version']].push({
+                'name' => content['file'],
+                'location' => file,
+            })
         end
     end
+
+    save_json(files, settings['file_manifest'])
 end
 
 def get_github_releases(settings)
@@ -163,6 +183,7 @@ def get_github_releases(settings)
         puts "Error connecting! Please check your oauth_token and/or user and repo.".red
         puts "Message: ".green + e.message
         puts "Response: ".green + JSON.pretty_generate(JSON.parse(e.response))
+        $log.error("Interrupted:  " + e.message)
         exit
     end
 
@@ -202,7 +223,7 @@ def create_releases(settings)
             puts "Release ".green + "#{name}".light_blue + " already exists upline. Storing."
             releases[name] = existing
             next
-        elsif releases.key? name
+        elsif release_exist(upline_releases, name) and releases.key? name
             puts "Release ".green + "#{name}".light_blue + " already exists. Skipping."
             next
         end
@@ -224,17 +245,64 @@ def create_releases(settings)
             puts "Error connecting! Please check your oauth_token and/or user and repo.".red
             puts "Message: ".green + e.message
             puts "Response: ".green + JSON.pretty_generate(JSON.parse(e.response))
+            $log.error("Interrupted:  " + e.message)
             exit
         rescue RestClient::UnprocessableEntity => e
             puts "Unable to process entity!".red
             puts "Message ".green + e.message
             puts "Response: ".green + JSON.pretty_generate(JSON.parse(e.response))
+            $log.error("Interrupted:  " + e.message)
             exit
         end
     end
     save_json(releases, settings['release_manifest'])
 end
 
+def upload_assets(settings)
+    releases = read_json(settings['release_manifest'])
+    files = read_json(settings['file_manifest'])
+    
+    files.each do |version, list|
+        list.each do |file|
+            headers = {
+                :Accept => settings['accept'],
+                :Authorization => 'token ' + settings['oauth_token'],
+                :content_type => FileMagic.new(FileMagic::MAGIC_MIME).file(file['location'])
+            }
+            upload_url = releases[version]['upload_url'].gsub(/\{\?name,label\}/,'?name=' + file['name'])
+            begin
+                puts 'Uploading'.green + " #{file['name']}".light_blue + " to " + upload_url.yellow
+                r = RestClient.post upload_url, File.open(file['location'], 'r'), headers
+                response = JSON.parse(r.body)
+                $log.info("Uploaded file => " + JSON.pretty_generate(response))
+            rescue RestClient::Unauthorized, RestClient::Forbidden => e
+                puts "Error connecting! Please check your oauth_token and/or user and repo.".red
+                puts "Message: ".green + e.message
+                puts "Response: ".green + JSON.pretty_generate(JSON.parse(e.response))
+                $log.error("Interrupted:  " + e.message)
+                exit
+            rescue RestClient::UnprocessableEntity => e
+                puts "Unable to process entity!".red
+                puts "Message ".green + e.message
+                response = JSON.parse(e.response)
+                if response['errors'].first()['code'].eql? 'already_exists'
+                    puts "The asset " + file['name'].light_blue  + " is already uploaded. " + "Skipping...".green
+                    next
+                else
+                    puts "Response: ".green + JSON.pretty_generate(response)
+                    $log.error("Interrupted:  " + e.message)
+                    exit
+                end
+            rescue Errno::EPIPE => e
+                puts "Broken pipe! Please check if the asset is not already uploaded. Skipping for now.".red
+                puts "Message: ".green + e.message
+                $log.warn("File #{file['name']} not uploaded: " + e.message)
+            end
+        end
+    end
+end
+
+$log.info("Started #{$0}")
 settings = get_settings()
 
 if ARGV.size < 1 or args[:help]
@@ -253,6 +321,11 @@ elsif args[:fetch]
 elsif args[:releases]
     check_manifest(settings)
     create_releases(settings)
+elsif args[:upload]
+    check_manifest(settings)
+    retrieve_files(settings)
+    create_releases(settings)
+    upload_assets(settings)
 else
     puts COMMAND_HELP
 end
