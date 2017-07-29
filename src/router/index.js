@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
+import About from '@/components/About'
+import Downloads from '@/components/Downloads'
 import BootstrapVue from 'bootstrap-vue'
 import Icon from 'vue-awesome/components/Icon'
 
@@ -28,7 +30,12 @@ export default new Router({
     {
       path: '/about',
       name: 'About',
-      component: Home
+      component: About
+    },
+    {
+      path: '/downloads',
+      name: 'Downloads',
+      component: Downloads
     }
   ]
 })

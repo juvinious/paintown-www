@@ -4,7 +4,7 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <!--<h1 class="display-2"><em style="font-weight:800;"><span style="font-size: 1.1em;">P</span>AIN<span style="font-size: 1.1em;">T</span>OWN</em></h1>-->
-        <h1 class="display-2"><a href="/#/#"><img src="../assets/paintown-logo-cropped-lg.png" class="img-fluid" alt="Paintown"  /></a></h1>
+        <h1 class="display-2"><a href="/#/#"><img src="../assets/paintown-logo-cropped-lg-trans.png" class="img-fluid" alt="Paintown"  /></a></h1>
         <p class="lead">If you are looking for a side-scrolling, action packed game like you used to play or if you are looking for an extensible engine to write your own game, look no further.</p>
         <hr class="my-4">
         <ul class="list-inline social-buttons" style="text-align: left;">
@@ -229,7 +229,7 @@ export default {
   @import "~bootstrap/scss/bootstrap.scss";
 
   .jumbotron {
-    background-color: black;
+    background-color: rgba(14, 14, 14, 0.9); //black;
     padding-bottom: 5em;
     .lead {
       color: white;

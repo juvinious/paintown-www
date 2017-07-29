@@ -38,4 +38,9 @@ export default {
     background: linear-gradient(to bottom, #000 0, #fff 100%) repeat-x;
     padding-bottom: 5em;
   }
+
+
+  .pt-container {
+    padding-top: 5em;
+  }
 </style>
