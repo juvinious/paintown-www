@@ -1,6 +1,53 @@
 <template>
   <div class="home">
     <!--<div class="block" ng-style="{'background':'black url(assets/images/akuma-anim-320.gif) center center', 'background-size': '100% auto', 'background-repeat': 'no-repeat'}">-->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <!--<h1 class="display-2"><em style="font-weight:800;"><span style="font-size: 1.1em;">P</span>AIN<span style="font-size: 1.1em;">T</span>OWN</em></h1>-->
+        <h1 class="display-2"><a href="/#/#"><img src="../assets/paintown-logo-cropped-lg.png" class="img-fluid" alt="Paintown"  /></a></h1>
+        <p class="lead">If you are looking for a side-scrolling, action packed game like you used to play or if you are looking for an extensible engine to write your own game, look no further.</p>
+        <hr class="my-4">
+        <ul class="list-inline social-buttons" style="text-align: left;">
+          <li>
+            <iframe
+              src="http://ghbtns.com/github-btn.html?user=kazzmir&amp;type=follow&amp;count=true"
+              allowtransparency="true"
+              frameborder="0"
+              scrolling="0"
+              width="150"
+              height="20">
+            </iframe>
+          </li>
+          <li>
+            <iframe
+              src="http://ghbtns.com/github-btn.html?user=juvinious&amp;type=follow&amp;count=true"
+              allowtransparency="true"
+              frameborder="0"
+              scrolling="0"
+              width="150"
+              height="20">
+            </iframe>
+          </li>
+        </ul>
+        <p class="lead">
+          <b-button-group>
+            <b-button href="http://sourceforge.net/projects/paintown/files/paintown/3.6.0/paintown-win32-3.6.0.exe/download" class="btn btn-large btn-windows" role="button" size="lg">
+              <i class="fa fa-windows"></i>
+              Windows Installer
+            </b-button>
+            <b-button href="http://sourceforge.net/projects/paintown/files/paintown/3.6.0/paintown-3-6-0.dmg/download" class="btn btn-large btn-osx" role="button" size="lg">
+              <i class="fa fa-apple"></i>
+              OSX Snow Leopard
+            </b-button>
+            <b-button href="https://github.com/kazzmir/paintown/archive/master.tar.gz" class="btn btn-large btn-source" role="button" size="lg">
+              <i class="fa fa-code"></i>
+              Source Code
+            </b-button>
+          </b-button-group>
+        </p>
+      </div>
+    </div>
+    <!--
     <div class="block">
       <div class="paintown-header">
         <div class="paintown-logo">
@@ -51,8 +98,8 @@
         </b-button-group>
       </div>
     </div>
-
-    <div class="container">
+    -->
+    <div class="container" id="#attract">
       <div class="row attract">
         <div class="col-sm-12 col-md-6">
           <div style="width: 320px; margin: 0 auto;">
@@ -181,6 +228,15 @@ export default {
 <style scoped lang="scss">
   @import "~bootstrap/scss/bootstrap.scss";
 
+  .jumbotron {
+    background-color: black;
+    padding-bottom: 5em;
+    .lead {
+      color: white;
+
+    }
+  }
+
   h1, h2 {
     font-weight: normal;
   }
@@ -221,9 +277,10 @@ export default {
       //}
     }
 
-    .container {
+    #attract {
       text-align: left;
       margin-bottom: 1em;
+
       .lead {
         font-size: 24px;
         line-height: 1.25;

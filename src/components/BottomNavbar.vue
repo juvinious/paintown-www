@@ -27,6 +27,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .navbar {
+    background-color: black !important;
+  }
 .navbar-text {
   color: white;
   font-weight: bolder;
