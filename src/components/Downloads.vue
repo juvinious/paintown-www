@@ -11,24 +11,26 @@
       </div>
 
       <div class="card-block">
-        <table class="table table-striped">
-          <tr>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Download Link</th>
-          </tr>
-          <tr v-for="item in items">
-            <td>{{item.title}}</td>
-            <td>{{item.date}}</td>
-            <td>
-              <a v-bind:href="item.link">
-                <button type="button" class="btn btn-primary pull-right">
-                  <i class="fa" :class="[`${item.icon}`]"></i> Download
-                </button>
-              </a>
-            </td>
-          </tr>
-        </table>
+        <div v-for="(release, release_name) in items">
+          <table class="table table-striped">
+            <tr>
+              <th>Title</th>
+              <th>Date</th>
+              <th>Download Link</th>
+            </tr>
+            <tr v-for="item in release">
+              <td>{{item.title}}</td>
+              <td>{{item.date}}</td>
+              <td>
+                <a v-bind:href="item.link">
+                  <button type="button" class="btn btn-primary pull-right">
+                    <i class="fa" :class="[`${item.icon}`]"></i> Download
+                  </button>
+                </a>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -40,14 +42,7 @@ export default {
   name: 'downloads',
   data () {
     return {
-      items: []
-      // items: [{title: 'v3.5', date: '05/15/22', link: 'http://www.google.com', icon: 'fa-office'}]
-    }
-  },
-  created () {
-    if (this.items.length === 0) {
-      alert('No stuff!')
-      this.items.push({title: 'v3.5', date: '05/15/22', link: 'http://www.google.com', icon: 'fa-office'})
+      items: this.$root.$data.dataStore.state.downloads
     }
   }
 }
