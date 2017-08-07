@@ -5,6 +5,7 @@ import About from '@/components/About'
 import Downloads from '@/components/Downloads'
 import BootstrapVue from 'bootstrap-vue'
 import Icon from 'vue-awesome/components/Icon'
+import ScrollTo from 'vue-scrollto'
 
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -18,6 +19,7 @@ import 'vue-awesome/icons'
 
 Vue.use(Router)
 Vue.use(BootstrapVue)
+Vue.use(ScrollTo)
 Vue.component('icon', Icon)
 
 export default new Router({

@@ -7,13 +7,24 @@ import downloads from './utils/downloads'
 
 Vue.config.productionTip = false
 
-downloads.fetch()
-
-var store = {
-  debug: true,
+let store = {
+  debug: false,
   state: {
     downloads: {},
     commits: []
+  },
+  addDownload (release, download) {
+    if (this.debug) {
+      console.log('Adding [' + download['title'] + '] to release [' + release + ']')
+    }
+    if (!(release in this.state.downloads)) {
+      this.state.downloads[release] = []
+    }
+    let list = this.state.downloads[release]
+    list.push(download)
+    this.state.downloads = Object.assign({}, this.state.downloads, {[release]: list})
+
+    // this.state.downloads[release].push(download)
   },
   hasDownloads () {
     return this.state.downloads.length !== 0
@@ -31,5 +42,8 @@ new Vue({
   components: { App },
   data: {
     dataStore: store
+  },
+  mounted () {
+    downloads.fetch(this.dataStore)
   }
 })

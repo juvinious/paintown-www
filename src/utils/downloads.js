@@ -21,35 +21,25 @@ export default {
     }
     return 'file'
   },
-  fetch () {
-    var list = {}
-    // var list = this.$root.$data.dataStore.state.downloads
+  fetch (storage) {
     axios.get(this.url)
       .then(response => {
-        console.log(response.data)
-        response.data.forEach(function (value) {
-          // console.log(value)
-          var release = value['name']
-          console.log(release)
-          if (!(release in list)) {
-            list[release] = []
-          }
-          value['assets'].forEach(function (asset) {
-            list[release].push({
+        // console.log(response.data)
+        for (let value of response.data.reverse()) {
+          let release = value.name
+          for (let asset of value.assets) {
+            let download = {
               title: asset['name'],
               date: asset['created_at'],
               link: asset['browser_download_url'],
               icon: this.contentType(asset['content_type'])
-            })
-          })
-        })
+            }
+            storage.addDownload(release, download)
+          }
+        }
       })
       .catch(e => {
 
       })
-    console.log(list)
-  },
-  addDownload (obj) {
-    this.state.downloads.push(obj)
   }
 }
