@@ -190,19 +190,6 @@ export default {
         this.anchorMap[str] = 'section-' + Object.keys(this.anchorMap).length.toString()
       }
       return this.anchorMap[str]
-    },
-    renderAdditional (version) {
-      switch (version) {
-        case 'mods':
-          return `<p class="card-text">
-            To install a mod download the zip file and unzip it to your mod path. Each OS has a different mod path:
-            </p>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Windows - Paintown installation directory (c:\\program files\\paintown)</li>
-          <li class="list-group-item">Linux - ~/.paintown</li>
-          <li class="list-group-item">OSX - ~/.paintown</li>
-          </ul>`
-      }
     }
   }
 }

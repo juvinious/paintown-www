@@ -31,11 +31,11 @@
         </ul>
         <p class="lead">
           <b-button-group>
-            <b-button href="http://sourceforge.net/projects/paintown/files/paintown/3.6.0/paintown-win32-3.6.0.exe/download" class="btn btn-large btn-windows" role="button" size="lg">
+            <b-button href="https://github.com/kazzmir/paintown/releases/download/pre-release/paintown-win32-3.6.1.exe" class="btn btn-large btn-windows" role="button" size="lg">
               <i class="fa fa-windows"></i>
               Windows Installer
             </b-button>
-            <b-button href="http://sourceforge.net/projects/paintown/files/paintown/3.6.0/paintown-3-6-0.dmg/download" class="btn btn-large btn-osx" role="button" size="lg">
+            <b-button href="https://github.com/kazzmir/paintown/releases/download/v3.6.0/paintown-3-6-0.dmg" class="btn btn-large btn-osx" role="button" size="lg">
               <i class="fa fa-apple"></i>
               OSX Snow Leopard
             </b-button>

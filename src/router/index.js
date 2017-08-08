@@ -4,6 +4,8 @@ import Home from '@/components/Home'
 import About from '@/components/About'
 import Downloads from '@/components/Downloads'
 import Development from '@/components/Development'
+import Media from '@/components/Media'
+import Contact from '@/components/Contact'
 import BootstrapVue from 'bootstrap-vue'
 import Icon from 'vue-awesome/components/Icon'
 import ScrollTo from 'vue-scrollto'
@@ -20,7 +22,15 @@ import 'vue-awesome/icons'
 
 Vue.use(Router)
 Vue.use(BootstrapVue)
-Vue.use(ScrollTo)
+Vue.use(ScrollTo, {
+  container: 'body',
+  duration: 500,
+  easing: 'ease',
+  offset: -65,
+  cancelable: true,
+  onDone: false,
+  onCancel: false
+})
 Vue.component('icon', Icon)
 
 export default new Router({
@@ -44,6 +54,16 @@ export default new Router({
       path: '/development',
       name: 'Development',
       component: Development
+    },
+    {
+      path: '/media',
+      name: 'Media',
+      component: Media
+    },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: Contact
     }
   ]
 })

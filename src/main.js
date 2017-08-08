@@ -4,8 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import github from './utils/github'
+import scroll from 'vue-scrollto'
 
 Vue.config.productionTip = false
+
+// Smooth scroll back to top between transitions
+router.beforeEach(function (to, from, next) {
+  scroll.scrollTo('body')
+  next()
+})
 
 let store = {
   debug: false,
