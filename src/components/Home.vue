@@ -145,7 +145,7 @@
               <li class="list-group-item">Images - png and jpeg</li>
             </ul>
             <div class="card-block">
-              <a href="http://alleg.sourceforge.net" class="card-link">Allegro    &raquo;</a>
+              <a href="http://liballeg.org" class="card-link">Allegro    &raquo;</a>
               <a href="https://www.libsdl.org" class="card-link">SDL    &raquo;</a>
             </div>
           </div>
