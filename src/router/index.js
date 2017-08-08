@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import About from '@/components/About'
 import Downloads from '@/components/Downloads'
+import Development from '@/components/Development'
 import BootstrapVue from 'bootstrap-vue'
 import Icon from 'vue-awesome/components/Icon'
 import ScrollTo from 'vue-scrollto'
@@ -38,6 +39,11 @@ export default new Router({
       path: '/downloads',
       name: 'Downloads',
       component: Downloads
+    },
+    {
+      path: '/development',
+      name: 'Development',
+      component: Development
     }
   ]
 })

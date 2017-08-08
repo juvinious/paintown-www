@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import downloads from './utils/downloads'
+import github from './utils/github'
 
 Vue.config.productionTip = false
 
@@ -11,7 +11,7 @@ let store = {
   debug: false,
   state: {
     downloads: {},
-    commits: []
+    commits: {}
   },
   addDownload (release, download) {
     if (this.debug) {
@@ -23,14 +23,23 @@ let store = {
     let list = this.state.downloads[release]
     list.push(download)
     this.state.downloads = Object.assign({}, this.state.downloads, {[release]: list})
-
-    // this.state.downloads[release].push(download)
   },
   hasDownloads () {
-    return this.state.downloads.length !== 0
+    return Object.keys(this.state.downloads).length !== 0
   },
-  addCommit (obj) {
-    this.state.commits.push(obj)
+  addCommit (repository, commit) {
+    if (this.debug) {
+      console.log('Adding [' + commit['date'] + '] to release [' + repository + ']')
+    }
+    if (!(repository in this.state.commits)) {
+      this.state.commits[repository] = []
+    }
+    let list = this.state.commits[repository]
+    list.push(commit)
+    this.state.commits = Object.assign({}, this.state.commits, {[repository]: list})
+  },
+  hasCommits () {
+    return Object.keys(this.state.commits).length !== 0
   }
 }
 
@@ -44,6 +53,6 @@ new Vue({
     dataStore: store
   },
   mounted () {
-    downloads.fetch(this.dataStore)
+    github.fetch(this.dataStore)
   }
 })
