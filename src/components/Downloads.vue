@@ -40,7 +40,7 @@
               <td>{{item.date}}</td>
               <td>
                 <a v-bind:href="item.link">
-                  <button type="button" class="btn btn-primary pull-right">
+                  <button type="button" class="btn btn-outline-success pull-right">
                     <icon v-bind:name="item.icon"></icon>&nbsp;&nbsp;&nbsp;&nbsp;Download
                   </button>
                 </a>

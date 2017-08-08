@@ -66,6 +66,11 @@
                 </button>
               </div>
               <div class="modal-body">
+                <p>
+                  <a type="button" class="btn btn-info" v-bind:href="repository[repository_name] + '/commits'">View commits on GitHub</a>
+                </p>
+              </div>
+              <div class="modal-body">
                 <div class="card" v-for="commit in commits" style="margin-bottom: .5em;">
                   <div class="card-header">
                     <a v-bind:href="commit.link">{{commit.sha}}</a>
@@ -77,13 +82,12 @@
                     <p class="card-text">{{commit.message}}</p>
                   </div>
                   <div class="card-footer text-muted">
-                    <strong>Commit by: </strong>{{ commit.author.login }}
+                    <strong>Commit by: </strong><a v-bind:href="commit.author.html_url" class="card-link">{{ commit.author.login }}</a>
                   </div>
                 </div>
               </div>
               <div class="modal-footer">
-                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>-->
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>

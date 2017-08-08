@@ -2,6 +2,7 @@
  * Created 8/4/17.
  */
 import axios from 'axios'
+import moment from 'moment'
 
 export default {
   releases: 'http://api.github.com/repos/kazzmir/paintown/releases',
@@ -40,7 +41,7 @@ export default {
           for (let asset of value.assets) {
             let download = {
               title: asset['name'],
-              date: asset['created_at'],
+              date: moment(asset['created_at']).format('MMMM Do YYYY, h:mm:ss a'),
               link: asset['browser_download_url'],
               icon: this.contentType(asset['content_type'])
             }
@@ -60,7 +61,7 @@ export default {
           // let date = value.name
           let content = {
             sha: commit['sha'],
-            date: commit['commit']['author']['date'],
+            date: moment(commit['commit']['author']['date']).format('MMMM Do YYYY, h:mm:ss a'),
             link: commit['html_url'],
             author: commit['committer'],
             message: commit['commit']['message']
