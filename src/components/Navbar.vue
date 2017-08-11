@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable class="pt-nav" type="inverse" variant="inverse" toggle-breakpoint="md" sticky="true">
+  <b-navbar toggleable class="pt-nav" type="inverse" variant="inverse" toggle-breakpoint="md" :sticky=true>
 
     <b-nav-toggle target="nav_collapse"></b-nav-toggle>
 
@@ -16,14 +16,14 @@
       </small>
     </div>
 
-    <b-collapse is-nav id="nav_collapse">
+    <b-collapse is-nav id="nav_collapse" ref="collapse">
 
       <b-nav is-nav-bar>
-        <b-nav-item to="/#"><icon name="home"></icon> Home</b-nav-item>
-        <b-nav-item to="/about"><icon name="info-circle"></icon> About</b-nav-item>
-        <b-nav-item to="/downloads"><icon name="download"></icon> Downloads</b-nav-item>
-        <b-nav-item to="/development"><icon name="code"></icon> Development</b-nav-item>
-        <b-nav-item to="/media"><icon name="file"></icon> Screenshots & Videos</b-nav-item>
+        <b-nav-item to="/#" @click="close"><icon name="home"></icon> Home</b-nav-item>
+        <b-nav-item to="/about" @click="close"><icon name="info-circle"></icon> About</b-nav-item>
+        <b-nav-item to="/downloads" @click="close"><icon name="download"></icon> Downloads</b-nav-item>
+        <b-nav-item to="/development" @click="close"><icon name="code"></icon> Development</b-nav-item>
+        <b-nav-item to="/media" @click="close"><icon name="file"></icon> Screenshots & Videos</b-nav-item>
       </b-nav>
 
       <b-nav is-nav-bar class="ml-auto">
@@ -33,7 +33,7 @@
           <template slot="button-content">
             <span style="font-weight: bold;"><icon name="question-circle"></icon> Support</span>
           </template>
-          <b-dropdown-item to="/contact"><icon name="envelope"></icon> Contact</b-dropdown-item>
+          <b-dropdown-item to="/contact" @click="close"><icon name="envelope"></icon> Contact</b-dropdown-item>
           <b-dropdown-item href="http://webchat.freenode.net/?randomnick=1&channels=paintown" target="_blank"><icon name="comments"></icon> IRC</b-dropdown-item>
           <b-dropdown-item href="https://github.com/kazzmir/paintown/issues" target="_blank"><icon name="bug"></icon> Report a Bug (Issues)</b-dropdown-item>
           <b-dropdown-item href="https://github.com/kazzmir/paintown/wiki" target="_blank"><icon name="book"></icon> Wiki</b-dropdown-item>
@@ -53,6 +53,13 @@
         'home': '/#/#',
         'github': 'http://www.github.com/kazzmir/paintown',
         'current_version': '3.6.1'
+      }
+    },
+    methods: {
+      close () {
+        if (this.$refs.collapse.show) {
+          this.$refs.collapse.toggle()
+        }
       }
     }
   }
