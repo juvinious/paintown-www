@@ -29,7 +29,23 @@
             </iframe>
           </li>
         </ul>
-        <p class="lead">
+        <p class="lead text-center hidden-sm-up">
+          <b-button-group vertical>
+            <b-button href="https://github.com/kazzmir/paintown/releases/download/pre-release/paintown-win32-3.6.1.exe" class="btn btn-large btn-windows" role="button" size="lg">
+              <i class="fa fa-windows"></i>
+              Windows Installer
+            </b-button>
+            <b-button href="https://github.com/kazzmir/paintown/releases/download/v3.6.0/paintown-3-6-0.dmg" class="btn btn-large btn-osx" role="button" size="lg">
+              <i class="fa fa-apple"></i>
+              OSX Snow Leopard
+            </b-button>
+            <b-button href="https://github.com/kazzmir/paintown/archive/master.tar.gz" class="btn btn-large btn-source" role="button" size="lg">
+              <i class="fa fa-code"></i>
+              Source Code
+            </b-button>
+          </b-button-group>
+        </p>
+        <p class="lead hidden-xs-down">
           <b-button-group>
             <b-button href="https://github.com/kazzmir/paintown/releases/download/pre-release/paintown-win32-3.6.1.exe" class="btn btn-large btn-windows" role="button" size="lg">
               <i class="fa fa-windows"></i>
@@ -47,58 +63,6 @@
         </p>
       </div>
     </div>
-    <!--
-    <div class="block">
-      <div class="paintown-header">
-        <div class="paintown-logo">
-          <a href="/#/#">
-            <h1><img src="../assets/paintown-logo-cropped-lg-trans.png" class="media img-rounded img-responsive" alt="Paintown"  /></h1>
-          </a>
-        </div>
-      </div>
-      <div class="container">
-        <p class="lead" style="text-align:center;">
-          If you are looking for a side-scrolling, action packed game like you used to play or if you are looking for an extensible engine to write your own game, look no further
-        </p>
-        <ul class="list-inline social-buttons" style="text-align: center;">
-          <li>
-            <iframe
-              src="http://ghbtns.com/github-btn.html?user=kazzmir&amp;type=follow&amp;count=true"
-              allowtransparency="true"
-              frameborder="0"
-              scrolling="0"
-              width="150"
-              height="20">
-            </iframe>
-          </li>
-          <li>
-            <iframe
-              src="http://ghbtns.com/github-btn.html?user=juvinious&amp;type=follow&amp;count=true"
-              allowtransparency="true"
-              frameborder="0"
-              scrolling="0"
-              width="150"
-              height="20">
-            </iframe>
-          </li>
-        </ul>
-        <b-button-group>
-          <b-button href="http://sourceforge.net/projects/paintown/files/paintown/3.6.0/paintown-win32-3.6.0.exe/download" class="btn btn-large btn-windows" role="button">
-            <i class="fa fa-windows"></i>
-            Windows Installer
-          </b-button>
-          <b-button href="http://sourceforge.net/projects/paintown/files/paintown/3.6.0/paintown-3-6-0.dmg/download" class="btn btn-large btn-osx" role="button">
-            <i class="fa fa-apple"></i>
-            OSX Snow Leopard
-          </b-button>
-          <b-button href="https://github.com/kazzmir/paintown/archive/master.tar.gz" class="btn btn-large btn-source" role="button">
-            <i class="fa fa-code"></i>
-            Source Code
-          </b-button>
-        </b-button-group>
-      </div>
-    </div>
-    -->
     <div class="container" id="#attract">
       <div class="row attract">
         <div class="col-sm-12 col-md-6">
@@ -296,6 +260,7 @@ export default {
           margin: 1em 0 0;
           display: inline-block;
         }*/
+
         .btn {
           font-size: 21px;
           padding: 14px 24px;
