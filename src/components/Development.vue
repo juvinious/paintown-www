@@ -33,9 +33,48 @@
           </thead>
           <tbody>
             <tr v-for="index in maxCommits">
-              <th scope="row">{{commits[index].date}}</th>
+              <th scope="row">
+                <a href="" data-toggle="modal" v-bind:data-target="'#' + commits[index].sha">{{commits[index].date}}</a>
+                <div class="modal fade" v-bind:id="commits[index].sha" tabindex="-1" role="dialog" v-bind:aria-labelledby="commits[index].sha" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" v-bind:id="commits[index].sha + '-title'">Commit Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>
+                          <a type="button" class="btn btn-info" v-bind:href="commits[index].link">View on GitHub</a>
+                        </p>
+                      </div>
+                      <div class="modal-body">
+                        <div class="card">
+                          <div class="card-header">
+                            {{commits[index].sha}}
+                          </div>
+                          <div class="card-block">
+                            <h4 class="card-title">
+                              {{ commits[index].date }}
+                            </h4>
+                            <p class="card-text">{{commits[index].message}}</p>
+                          </div>
+                          <div class="card-footer text-muted">
+                            <strong>Commit by: </strong><a v-bind:href="commits[index].author.html_url" class="card-link">{{ commits[index].author.login }}</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </th>
               <td>
-                <a v-bind:href="commits[index].link">{{commits[index].sha.substr(0,6)}}</a></td>
+                <a v-bind:href="commits[index].link">{{commits[index].sha.substr(0,6)}} <icon name="external-link"></icon></a>
+              </td>
               <td>
                 <a v-bind:href="commits[index].author.html_url">
                   <button type="button" class="btn btn-outline-success float-right">
@@ -51,16 +90,16 @@
         </table>
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModalLong">
+        <button type="button" class="btn btn-success float-right" data-toggle="modal" v-bind:data-target="'#modal-' + getAnchor(repository_name)">
           View more commits
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal fade" v-bind:id="'modal-' + getAnchor(repository_name)" tabindex="-1" role="dialog" v-bind:aria-labelledby="repository_name" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">All {{ repository_name }} commits</h5>
+                <h5 class="modal-title" v-bind:id="repository_name + '-title'">All {{ repository_name }} commits</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
