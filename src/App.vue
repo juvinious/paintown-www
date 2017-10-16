@@ -6,7 +6,9 @@
 
     <!-- main -->
     <div class="content">
-      <router-view></router-view>
+      <transition name="router" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+        <router-view></router-view>
+      </transition>
     </div>
 
     <!-- Footer -->
@@ -28,6 +30,8 @@ export default {
 </script>
 
 <style lang="scss">
+  @import '~AnimateCSS';
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
