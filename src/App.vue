@@ -6,8 +6,9 @@
 
     <!-- main -->
     <div class="content">
-      <transition name="router" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-        <router-view></router-view>
+      <!--<transition name="router" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">-->
+      <transition name="router">
+        <router-view v-if="loaded"></router-view>
       </transition>
     </div>
 
@@ -25,12 +26,30 @@ export default {
   components: {
     navbar,
     bottomNavbar
+  },
+  data () {
+    return {
+      loaded: false
+    }
+  },
+  mounted () {
+    this.loaded = true
   }
 }
 </script>
 
 <style lang="scss">
-  @import '~AnimateCSS';
+  // @import '~AnimateCSS';
+
+  .router-enter-active {
+    transition: opacity .3s;
+  }
+  .router-leave-active {
+    transition: opacity .2s;
+  }
+  .router-enter, .router-leave-to {
+    opacity: 0
+  }
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
