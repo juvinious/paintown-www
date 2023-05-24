@@ -1,6 +1,6 @@
 # paintown-www
 
-> Paintown website
+> Paintown website - [paintown.org](https://paintown.org)
 
 ## Build Setup
 
