@@ -1,4 +1,5 @@
 .DS_Store
+.env
 node_modules/
 dist/
 gh-pages/
@@ -9,6 +10,7 @@ test/unit/coverage
 test/e2e/reports
 selenium-debug.log
 package-lock.json
+site
 
 # Editor directories and files
 .idea
